@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<head>
+	<script src="./css_js/jquery/jquery-3.6.0.slim.min.js"></script>
+    <script src="./config.js"></script>
+    <link rel="stylesheet" type="text/css" href="./css_js/metro3d/BOS3D.css">
+    <link rel='shortcut icon' href='./images/favicon.ico' type='image/x-icon'/ >
+    <title>Boston 3D SketchUp Model </title>
+    </head>
+    <body>
+        <div class="wide_column">
+		<div id="banner"><!-- loaded from config.js. --></div>
+
+
+		<h1>Tiled City Model in SketchUp Format</h1>
+		<img class="fig_right" src="./images/SketchUp_Model.jpg">
+		<p><b>File Name: </b> Bos_[Tile]_Skp_[Issue Date].skp
+		<br><b>Updated: </b> July 2021
+		<br><b>Format: </b> SketchUp 2015 (.skp)
+
+
+		<div id="context"><!-- loaded from config.js. --></div>
+		<div id="nav3d"><!-- loaded from config.js. --></div>
+		
+
+	<h2>Dataset Description</h2>
+	<p>These models are intended to provide designers and others with a ready-made context model for developing design ideas in context.  These models provide a common operating picture for developers and members of the public to understand development projects.  Students and historians can use these models as a means of recording and sharing knowledge about the history of the city in 3D.
+		</p>
+
+   <h2>Sources</h2>
+   <p>These SketchUp models combine the four components of the BPDA's city model into one integrated city model for each tile.  For information about sources, visit the metadata page for each of the components:</p>
+   <ul>	
+    <li><a href="./tiled_terrain.htm" target="metadata">Bos3D_Terrain_2011</a> 
+	<li><a href="./jpg_basemap.htm" target="metadata">Planimetric Groundplan 2011</a>
+	<li><a href="./building_models.htm" target="metadata">Bos3D Building Models:</a>
+	<li><a href="./tile_grid.htm" target="metadata">Bos3d Tile Grid</a>
+	</ul>
+	<p>The <a href="./ortho_2021.htm" target="metadata"> 2021 Orthophoto base map</a> may easily be draped onto the terrainmodel or included as a reference image as explained at the bottom of this document. 
+	</p>
+	<h2>Organization</h2>
+	<p>Each of the SketchUp tiles uses the same tag (layer) scheme to control visibility of the different model components. Building models are grouped individually and named according to the unique model identifier that references the <b>Model catalog</b> described in the documentation for <a href="./building_models.htm" target="metadata">Boston 3D Tiled Building Collections</a>. 
+	</p>
+	<h2>Format</h2> 
+	<p>Although SketchUp format is proprietary, it has been chosen because it allows for the encapsulation of model named and nested components. Practically all commercial modeling tools import .Skp format.	All of the components used in these models are also made available in the open and stable Wavefront Object format.  <a href="./BOS3D_Buildings.html" target="metadata">Boston 3D Tiled Building Collections</a>. 
+	</p> 
+
+	<div id="coordsys"><!-- loaded from config.js. --></div>
+
+
+	<h2>Usage Notes</h2>
+	<ul>
+		<li>The terrain looks better if you use the <b>Window > Soften / Smooth Edges</b> to soften coplanar edges within 50 Degrees.  (<a href="./images/soften_terrain.jpg">see screenshot</a>)
+		<li>To skin the terrain with the 2021 Aerial photo or any other base map image clipped to the Metro Boston 3d tile scheme, use the <b>  Materials > Eye Dropper</b> to select the terrain material, then choose the desired ground plan image in the Edit tab.   (<a href="./images/swap_material.jpg">See Screenshot</a>)
+		<li>The tile frame included with each SketchUp model can be used to register models with neighboring tiles or with the city-wide tile grid.  The elevation of the tile polygon is always 0.
+	</ul>
+	    <h3 id="geolocation">SketchUp Geo-Location</h3> 
+	  <p>To georeference your SketchUp model for interoperability with SktchUp's Geo-Location features, including export of properly located KMZ files:
+		  <ul>
+			  <li>Load the <a href="./tile_grid.htm#downloads">SketchUp tile grid</a> and see the latitude and longitude references for tile centers and corners.
+			  <li>Choose a tile center or corner to be the origin point for your model.  This works best for models that are just one or two tiles wide.
+			 <li>Select all and click your chosen origin point with the <b>Move tool</b>. 
+			<li>Type <b>[0,0,0]</b> -- which should appear in the Measurement Box (lower right corner of the SketchUp window.) Your model origin should now be at your chosen point. 
+			<li>Click your origin point with the <b>Rotate tool</b>. and begin a clockwise rotation.  Then enter <b>1.3</b> (degrees) in the Measurement box.  This orients your model to the local Universal Transverse Mercator grid, which SketchUp expects.
+			<li>FInally, Go to Model Info > Geolocation and enter the latitude and longitude for your origin point. 
+			<li>Test your geolocation by trying to add some imagery from <b>File > GeoLocation > Add Imagery</b>
+				
+	</ul>
+
+
+<!-- Below here is part of template-->
+<div id="disclaimer"> <!-- filled in by config.js --></div>
+</div> <!-- closes wide column -->  
+</body>

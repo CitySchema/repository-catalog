@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<head>
+	<script src="./css_js/jquery/jquery-3.6.0.slim.min.js"></script>
+    <script src="./config.js"></script>
+	<script src="./data_dictionary.js"></script>
+    <link rel="stylesheet" type="text/css" href="./css_js/metro3d/BOS3D.css">
+    <link rel='shortcut icon' href='./images/favicon.ico' type='image/x-icon'/ >
+    <title>Open Format Building Model Collection</title>
+    </head>
+    <body>
+        <div class="wide_column">
+		<div id="banner"><!-- loaded from config.js. --></div>
+
+
+		<h1>Open Source Building Model Collection and Catalog</h1>
+		<div class="block_right">
+		<img  src="./images/Buildings.jpg">
+		<img  src="./images/repocat_files.jpg">
+		</div>
+
+		<p><b>File Names:</b> Bos_[Tile Name]_ModelCollection_OBJ_[Issue Date].zip
+		<br><b>Formats: </b>Wavefront OBJ format, Plain Text -- Comma Separated Values, GeoJSON
+        <br><b>Updated: </b> July 22, 2021
+	
+		<div id="context"><!-- loaded from config.js. --></div>
+		<div id="nav3d"><!-- loaded from config.js. --></div>
+
+		
+		<h2>Dataset Description</h2>
+        <p>
+			The collection of 3D models of buildings, bridges and walls has been compiled frm many sources over many years.  The 3d Model catalog records the provenance of each model, the model's status (Historical, Current, or Proposed), geometric information about the model and links to pertinent resources. A deeper discussion of the organization of the model collection  can be found in the <a href="./model_collection.htm" target="metadata">Boston 3D Building Model Collection</a> document.
+		</p>
+		
+		<p>The open-source building models collection provides 3D models and a catalog formats that are compatible with open-source tools for modeling, model transformation, web visualization and long-term archiving.
+		</p>
+	    <p>The model collection is segmented into tiles.  Each model being assigned to the tile that its centroid falls within.  Each three-dimensional building, bridge and wall  model is formatted in <a href="https://www.loc.gov/preservation/digital/formats/fdd/fdd000507.shtml">Wavefront Object (.OBJ)</a> format and zipped with its materials (if it has any). A human-readable json file that includes the attributes of the model is included in the zip archive with each model.
+		</p>
+		
+		<img class="fig_right" src="./images/ModelFinder.jpg">
+		<p>
+			Each tile's collection includes a <b>Catalog Folder</b> that holds a catalog data file and a tile frame  and a low-resolution copy of the tile's base-map.  These resources are used by the <b>ModelFinder.htm</b> -- a simple javascript enabled page that creates an clickable model index map.  Clicking the model's footprint on the map reveals its attributes and a download link for the zipped OBJ package. The ModelFinder application provides a means for collaborators to discover and selectively download updated models.  
+		</p><p>
+			The ModelFinder application demonstrates how the tiled model archive and catalog can be used by open-source tool-chains to systematically access every model in the collection according to its attributes.   The catalog folder also contains a validation log that records the issues that our translation program discovered while converting the models from Geodatabase to .OBJ format. Most of these issues are repaired while writing to OBJ format. 
+		</p><p>
+		The tiled model collections are available from the <a href="./tiled_index.htm" target="downloads">Download Map</a>.  Users can download the entire Archive Catalog for any tile, or you can click the <b>Browse Individual Models</b> link to use that a tile's ModelFinder app to browse and download individual building models.
+	
+	<p>For users who download the entire open-source model repository and catalog for a tile, the ModelFinder application serves as a finding aid and model database whether or not your computer is connected to the internet.
+	</p>
+
+
+<h2>Usage Notes</h2>
+<ul>
+<li>3D modeling tools make different assumptions about the axis orientation for  imported .OBJ models. If your model does not land in the appropriate location relative to your tile frame then change your import options to <b>Z-Up, Y-Forward</b>.  In other importers, such as the Skimp plugin for SketchUp, the option that works is <b>Rotate -90 degrees about the X axis.</b>
+<li>The tile frame included with each terrain model can be used to register models with neighboring tiles or with the city-wide tile grid.  The elevation of the tile polygon is always 0.
+<li>The Bos3d_TileFrame.GeoJSON file included with each model collection provides the latitude and longitude for each tile corner, and the State Plane coordinates for the tile center.  This information is very useful for transforming coordinates for building models from the <a href="./tile_grid.htm#coordinates target="metadata"">Metro Boston 3D CRS</a>into any other coordinate system you may need. 
+</ul>
+
+
+<div id="coordsys"><!-- loaded from config.js. --></div>
+
+<div id="disclaimer"> <!-- filled in by config.js --></div>
+
+
+<div id="datadictionary"><!-- loaded from config.js. --></div>
+
+
+</div>
+</body>
+</html>

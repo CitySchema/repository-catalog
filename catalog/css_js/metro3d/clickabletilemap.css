@@ -1,0 +1,134 @@
+
+
+body {
+  font-family: 'Open Sans',sans-serif;
+    color: #353535;
+    font-size: 15px;
+    line-height: 24px;
+    width: 730px;
+}
+
+a:visited {
+    color: #6c9d6c;
+    }
+    
+a {
+    color: #6c9d6c;
+    }   
+    
+
+#breadcrumbs {
+    margin: -.25em 0 .7em 0em;
+    padding: 0;
+    font-size: .9em;
+    color: #333;
+}
+
+.wide_column {
+    width: 730px;
+    float: right;
+    display: block;
+}
+
+.fig_right {
+    float: right;
+    margin: 5px;
+    width: 350px;
+ }
+ 
+h1, h3, h4, h5, h6 {
+    font-weight: normal;
+    margin: 0.5em 0em;
+}
+
+h1, h4 {
+    color: #00345b;
+    font-size: 2em;
+}
+
+
+/*h2 {
+    color: #767676;
+    font-size: 1.6em;
+}*/
+
+/*p {
+    color: #333;
+    display: block;
+    line-height: 1.4em;
+    margin-bottom: 1.165em;
+    font: 87.5% "myriad-pro", Arial, Helvetica, sans-serif;
+}*/
+
+p {
+    padding-bottom: 15px;
+    display: block;
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+}
+
+table {
+    width: 100%; 
+    border-collapse: collapse;
+    font: 87.5% "myriad-pro", Arial, Helvetica, sans-serif;
+}
+table tr:nth-child(even) {
+    background: #f5f3f3;
+}
+table tr:nth-child(odd) {
+
+}
+table td {
+     padding: .5em 1em;
+    vertical-align: top;
+    border: 1px solid #B3B2B2;
+}
+table th {
+    padding: .5em 1em;
+    vertical-align: top;
+    background: #e1e1e1;
+    font-weight: normal;
+    padding: .5em 1em;
+    text-align: left;
+    border: 1px solid #b3b2b2;
+    font-weight: bold;
+}
+
+.filelist p {
+    color: #333;
+    display: block;
+    margin: 0;
+    padding: 0;
+    font: 87.5% "myriad-pro", Arial, Helvetica, sans-serif;
+  }
+
+.filelist h2 {
+    color: #333;
+    display: block;
+    line-height: 1.1em;
+    margin-bottom: 0.5em;
+    font: 92% "myriad-pro", Arial, Helvetica, sans-serif;
+  }
+
+table.filelist td {
+   border-collapse:collapse;
+   border: none;
+   margin: 0;
+   padding: 0;
+   }
+
+h2 {
+    font-size: 18px;
+    line-height: 20px;
+    padding-bottom: 10px;
+    color: #00a7b5;
+    font-family: FFLegatoWebBold,'Open Sans',sans-serif;
+    font-weight: 700;
+    display: block;
+    margin-block-start: 0.83em;
+    margin-block-end: 0.83em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+}

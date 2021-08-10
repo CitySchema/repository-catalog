@@ -1,0 +1,86 @@
+
+<!DOCTYPE html>
+<head>
+  <script src="./css_js/jquery/jquery-3.6.0.slim.min.js"></script>
+  <script src="./config.js"></script>
+  <link rel="stylesheet" type="text/css" href="./css_js/metro3d/BOS3D.css">
+  <link rel='shortcut icon' href='./images/favicon.ico' type='image/x-icon'/ >
+  <title>Boston3D Data Download</title>
+  </head>
+  <body>
+
+      <div class="wide_column">
+      <div id="banner"><!--loaded from config.js--></div>
+
+<p><b style="color: red; background: gold">What's New?</b> The BPDA GIS Department has made many changes to make it easier for neighbors and makers of all kinds to collaborate on the improvement, extension and applications of the city's representation of itself.  <a href="./about.htm" target="metadata"> Click here</a> to read more about it!.</p>
+
+<h1>Data Download</h1>
+	<p>The Boston Planning and Development Agency (BPDA) maintains a 3D model of the city as a visualization and analytical tool for understanding ideas related to the future of neighborhoods. To explore the city model in an interactive fly-through, <a href="https://boston.maps.arcgis.com/apps/webappviewer3d/index.html?id=cf3415dea19d480caa71eb5dbdce185f">click here.</a>  The BPDA shares the detailed city-wide model in formats intended to facilitate collaboration between diverse communities who have an interest in understanding places in the city as they have changed or as they may be changed.  
+   </p>
+      <div id="nav3d"><!-- loaded from config.js. --></div>
+      <h2>Tiled City Model Components</h2>
+      <p>
+        Click the blue info-dots <img  src='./images/infodot.png' height='15px'>, for information and tips for using each of the of the model components.  
+      </p>
+
+   <div class="block_middle">
+    <table class="dddthumbs" width = "750px">
+    <tr><td colspan="3">
+    <img src="./images/first_row_3k_edges.jpg" width="100%">
+    </td></tr>
+    <tr>
+        <td width="33%" >Sketchup Model <a href='./sketchup_model.htm' target='_new'><img src='./images/infodot.png' style="height:15px; width:15px;"></a></td>
+        <td width="33%" align="center">Terrain with groundplan in OBJ format <a href='./tiled_terrain.htm' target='_new'><img src='./images/infodot.png' style="height:15px; width:15px;"></a></td>
+        <td width="33%" align="right"> Building Model Collection in .OBJ format <a href='./building_models.htm' target='_new'><img src='./images/infodot.png' style="height:15px; width:15px;"></a></td></tr>
+    <tr><td colspan="3">
+    <img src="./images/second_row_edges_3k.jpg" width="100%">
+    </td></tr>
+    <tr>
+        <td width="33%">Base Maps: JPG <a href='./jpg_basemap.htm' target='_new'><img src='./images/infodot.png' style="height:15px; width:15px;"></a></td>
+  
+        <td width="33%" align="center">2021 Orthophoto JPEG <a href='./ortho_2021.htm' target='_new'><img src='./images/infodot.png' style="height:15px; width:15px;"></a></td>
+  
+        <td width="33%" align="right">DXF Base Layers <a href='./tiled_cad.htm' target='_new'><img src='./images/infodot.png' style="height:15px; width:15px;"></a></td></tr>
+    </table>
+  </div> 
+
+ 
+  <p>To make it easier for users of 3D modeling tools to acquire complete 3D model covering specific area of interest, model components are packaged using a system of 5,000 foot square tiles that snap together seamlessly.  Each of the city-model components is made available in open-source data formats, and as an all-in-one SketchUp format model that combines all of the components in one model per tile that can be imported with into most commercial modeling tools.
+  </p>
+  <p>
+    See the links at <a href="#seamless">the bottom of this page </a> to download seamless city-wide layers.  
+  </p>
+
+
+  <H2 id="tilemap">Click the Map to Download Tiled Model Resources</h2>
+    <p style="color: red;"><b>This is a draft page: Tile I-3 is the only tile that actually link to resources </b></p> 
+
+<div>
+    <iframe width="700px" height="600px" src="./clickable_tile_map.htm" ></iframe>
+</div>
+
+<h2 id="seamless">City-Wide Seamless Data-Sets</h2>
+<ul>
+  <li>
+    <a href="../Bos3d_CityWide_Data/Bos3d_Models_GDB.zip">
+    Latest City-Wide Building Model Collection: Esri Geodatabase</a>
+    <a href="./model_collection.htm" target="metadata"><img src='./images/infodot.png' height='15px'></a>
+
+<li><a href="./tile_grid.htm#download" target="metadata">
+  The Tile Grid in Shapefile, DXF, SketchUp and CSV format</a>
+  <a href="./tile_grid.htm" target="metadata"><img src='./images/infodot.png' height='15px'></a>
+
+<li>City-Wide Model Catalog in GeoJSON and CSV Format (Coming soon)
+
+    <li ><a href="http://www.bostonplans.org//planning/urban-design/urban-design-technology-group/downloads-and-submissions" target="metadata">City-Model components published by the BPDA Urban Design Technology Group.</a> Includes 2D CAD and 3D model files organized by Boston neighborhoods.
+    </li>
+<li class="lastChild"> Additional 2D GIS Data is available through the <a href="http://boston.maps.arcgis.com/home/index.html" target="metadata"> City of Boston's GIS Data Hub</a>. 
+  </ul>
+
+<div id="coordsys"></div>
+
+<div id="disclaimer"><!--loaded from config.js--></div>
+
+</div> <!--closes  wide column -->  
+</div>
+</body>

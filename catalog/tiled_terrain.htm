@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<head>
+    <script src="./css_js/jquery/jquery-3.6.0.slim.min.js"></script>
+    <script src="./config.js"></script>
+    <link rel="stylesheet" type="text/css" href="./css_js/metro3d/BOS3D.css">
+    <link rel='shortcut icon' href='./images/favicon.ico' type='image/x-icon'/ >
+    <title>Tiled Terrain Models</title>
+    </head>
+    <body>
+
+        <div class="wide_column">
+			<div id="banner"><!-- loaded from config.js. --></div>
+				
+				
+            <h1>Tiled Terrain Models</h1>
+            <img class="fig_right" src="./images/Terrain.jpg">
+            <br><b>GIS File Name: </b> Bos3D_[tile]_Terrain_2011
+	        <br><b>Updated: </b> 
+		<ul><li>Boston terrain observed April 2011
+		    <li>Outside Boston, terrain represented with MassGIS 2005 data. 
+		</ul>
+    	<b>Format: </b> Wavefront Object (.obj)
+
+
+		<div id="context"><!-- loaded from config.js. --></div>
+		<div id="nav3d"><!-- loaded from config.js. --></div>
+		
+		<h2>Dataset Description </h2>
+		<p>These tiled terrain models provide a precise reference for placing and visualizing 3d models.  They can be used to represent the initial conditions for detailed design studies.  These models also provide an accurate terrain reference for shadow and inter-visibility studies.  
+			</p>
+		
+	
+
+	<h2>Sources</h2>
+	<h3>Boston Terrain</h3>
+	<p>
+	 The terrain layer was developed by stereo photogrammetry captured in April 2011 and processed by Infotech.  The process yielded critical elevation points and grade-breaklines with a precision of about one foot.</p>  
+	 <h3>Outside Boston</h3>
+	 <p>Breaklines and Masspoints from the <a href="https://www.mass.gov/info-details/massgis-data-digital-elevation-model-from-1990s-aerial-imagery">MassGIS 2005 Digital Terrain model</a> were used to fill in details outside the city limit.  </p>
+	<p>
+	Breaklines and masspoints form these two data-sets were clipped and merged for each tile.  Elevation ponts were created for tile corners.	A surface mesh was created using the ESRI TIN Triangulation tool (Delaunay Triangulation).   The result is a crisp terrain mesh covering the city of Boston and surrounding areas.  
+	</p><p>
+		The <a href="./jpg_basemap.htm" target="metadata">BOS3D Planimetric Basemap</a> is draped as a texture on each terrain tile.  Because of the tiling scheme, it wil be very easy to replace the texture with the <a href="./ortho_2021.htm" target="metadata">2021 Orthophoto</a>.
+	</p><p>
+
+
+<h2>Organization</h2>
+<p>Each tiled terrain download is a folder that contains an .OBJ file, a material (.mtl) file and a materials folder that contains the groundplan texture.  
+</p>
+
+
+<div id="coordsys"><!-- loaded from config.js. --></div>
+
+
+	<h2>Usage Notes</h2>
+	<ul>
+		<li>3D modeling tools make different assumptions about the axis orientation for  imported .OBJ models. If your model does not land in the appropriate location relative to your tile frame then change your import options to <b>Z-Up, Y-Forward</b>.  In other importers, such as the Skimp plugin for SketchUp, the option that works is <b>Rotate -90 degrees about the X axis.</b>
+	<li>The tile frame included with each terrain model can be used to register models with neighboring tiles or with the city-wide tile grid.  The elevation of the tile polygon is always 0.
+	<li>For applications that call for editing the terrain model, we recommend that you start with the DTM breaklines and masspoints included with the <a href="./tiled_cad.htm" target="metadata"> tiled DXF Groundplans</a>.  Adjust the 3D breaklines and masspoints to represent your new grades.  Then use the delaunay triangulation tools in your modeler to create a new mesh. 
+	<li>It is easy to substitute an alternate groundplan image as the texture, including our <a href="./ortho_2021.htm" target="metadata">The Boston 3D 2020 Orthophoto</a>.
+	</ul>
+
+<!-- Below here is part of template-->
+<div id="disclaimer"> <!-- filled in by config.js --></div>
+</div> <!-- closes wide column -->  
+</body>
+</html>
+

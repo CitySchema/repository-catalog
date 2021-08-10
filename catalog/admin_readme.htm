@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<head>
+    <script src="./css_js/jquery/jquery-3.6.0.slim.min.js"></script>
+    <script src="./config.js"></script>
+    <link rel="stylesheet" type="text/css" href="./css_js/metro3d/BOS3D.css">
+    <link rel='shortcut icon' href='./images/favicon.ico' type='image/x-icon'/ >
+    <!-- Do set the title -->
+    <title>City-Model Archive and Catalog</title>
+</head>
+
+<body>
+    <div class="wide_column"> <!-- the content centered in the page.Closes at bottom-->
+    <div id="banner"><!-- loaded from config.js. --></div>
+
+    <h1>How to Use the City-Model Archive and Catalog</h1>
+
+        <div class="fig_right"> 
+          <img class="fig_right" src="./images/archive.jpg">
+            <p class="fig_right">The City-Model Archive and Catalog in your file-system</p>
+        </div>
+
+<div id="context"><!-- loaded from config.js. --></div>
+<div id="nav3d"><!-- loaded from config.js. --></div>
+
+<h2 style="clear: both">A Self-Contained Archive and Catalog</h2>
+<p>The web page you are looking at, <b>admin_readme.htm</b> is an html page that sits in the Catalog folder somewhere on your file-system.  It may be behind a web server, accessible through a URL, or you could just right-click on it in your file browser and open it directly in your web browse as a local file.  
+The entire catalog with all of its clickable maps and all of the access to files of the complete city model will function whether this archive and catalog is on the internet or just sitting in a local file-system.  All of the zipped download files have been arranged in the two folders, <b>Bos3d_Tiled_Data</b> and <b>Bos3d_CityWide_Data</b>.
+</p><p>If youare an archivist or future historian wanted to have the complete city model with in open formats with all of the necessary metadata, catalog, and interactive finding aids this collection would be all they would need.  For the municipal agency that wants to publish the city model to publish their city model, all that is necessary is to place this collection of files on your web server and publish the link to your own download page.
+</p><p>
+If you want to explore how the tiled and seamless data-sets and their metadata with lots of usage tips, what you see here is enough to get started, although the only tiled data-sets available on this demo site are tiles I-3 and J-3. Look through the topics in the <a href="./doc_index.htm" target="index">Documentation Index</a>.  Try downloading one fo the tile-grids in your favorite modeling tool. And then set up a project for one of oue scenic East Boston tiles. <a href="./contact_us.htm" target="contact">Contact Us</a> with your comments.
+<p>
+<h2>Manage and Customize the Catalog</h2>
+<p>If you want to learn how to set-up and manage your own version of the catalog, read on.  The first step would be to <a href="../Bos3d_CityCat_Demo.zip">click here to download the demo archive and catalog archive</a> 
+</p><p>To test that it works: 
+    <ol>
+        <li>Extract the archive file.
+        <li>find the file, <b>Catalog\tiled_index.htm</b> 
+        <li>Right-click it to open it in your favorite browser. You should see the clickable tile map. 
+        <li>Click on tile I-3 to expose links to all of the downloadable files for that tile.
+        <li>Click on the <b>Browse and Download Individual Building Models</b> to expose the catalog for the I-3 model collection. 
+        </ol>
+<p>All of this systematic access to terrain models, groundplan images, DXF resources and building models should demonstrate that we have a functional catalog here.   
+</p><p>
+<h2>Editing Pages and the config.js File</h3>
+<p>The catalog is set up to be easily edited and customized.  We recommend using a good multi-purpose code editor like Microsoft's Visual Studio Code (free).  You can set up an instant editing environment by opening the Catalog folder in VSCode. This does smart highlighting of the html and javascript code.  Open the <a href="./template.htm" target="metadata">template.htm</a> page and have a look at the simple HTML code.  Most of ehat makes these pages look clean and like other pages on the BPDA wev site is contained in the stylesheet Bos3d.css that you can see referenced at the top of each page, along with the script <a href="./config.js" target="metadata">config.js</a>.  Notice how config.js sets up a lot of boilerplate text like the project contect and the Disclaimer that is repeated on each page but only has to be edited in the config page to make changes throughout the catalog. 
+</p> 
+<h2>Arrangement on the File-System</h2>
+<p>The demo archive and catalog is set up so that the links expect to find the data-sets in the folders, <b>Bos3d_Tiled_Data</b> and <b>Bos3d_CityWide_Data</b>.  as immediate neighbors to the Catalog folder. The demo includes data for just three tiles: G2, I3 and J3.  When you install the archive on your web server, you will wither have all of the data included, or wil recieve the individual Tiled component files delivered as individual zip archives to allow for speedier downloading.  
+    If for some reason, you can't put your web-accessible data files in that relative location, you could set up symbolis links to the folders or use search and replace to update the hyperlinks links can be adjusted on the Download page, ClickableTileMap.htm on tile_grid.htm pages.
+</p> 
+
+
+
+<!-- Below here is part of template-->
+<div id="disclaimer"> <!-- filled in by config.js --></div>
+</div> <!-- closes wide column -->  
+</body>
+</html>

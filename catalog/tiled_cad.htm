@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<head>
+    <script src="./css_js/jquery/jquery-3.6.0.slim.min.js"></script>
+    <script src="./config.js"></script>
+    <link rel="stylesheet" type="text/css" href="./css_js/metro3d/BOS3D.css">
+    <link rel='shortcut icon' href='./images/favicon.ico' type='image/x-icon'/ >
+    <title>Boston 3D Tiled DXF Layers </title>
+    </head>
+    <body>
+		<div class="wide_column"> <!-- the content centered in the page.Closes at bottom-->
+			<div id="banner"><!-- loaded from config.js. --></div>
+
+            <h1>Tiled Planimetric Layers in DXF Format</h1>
+			<img class="fig_right" src="./images/CAD.jpg">
+            <p><b>File Name: </b> Bos3D_[Tile]_DXF.dxf
+            <br><b>Updated: </b> July 2021
+            <br><b>Formats: </b>Autodesk Drawing Exchange Format r.14 (.dxf)
+
+
+			<div id="context"><!-- loaded from config.js. --></div>
+			<div id="nav3d"><!-- loaded from config.js. --></div>
+			
+		<h2>Dataset Description</h2>
+		<p>Vector information from several GIS layers has been exported to DXF format for the convenience of users of design tools includnig autoCAD, Rhino or Adobe Illustrator.  They can be used as a location reference, source layers for modifiable groundplan linework, digital terrain models and extrudable building footprints.
+		</p>
+		<ul><li>Many Planimetric Groundplan Layers -- edge of pavement, shorelines, etc. -- (Infotech, 2011)
+			<li>Digital Terrain Model Breaklines and Masspoints (Infotech, 2011; MassGIS, 2005 )
+			<li>One-foot Contours (Elevated) (Infotech, 2011 )
+			<li>Building Model Footprints elevated to building height
+			<li>Openspace Boundaries (MassGIS, 2020)
+			<li>Property Parcels (Boston Assessing,2020)
+		</ul>
+
+
+		<div id="coordsys"><!-- loaded from config.js. --></div>
+				
+		<h2>Usage Notes</h2>
+		<ul>
+			<li>Be sure to specify units of Feet when importing DXF layers related to the Boston 3D model. 
+			<li>For editing terrain, we recommend modifying the DTM Breaklines and Massponts layers and generating a terrain mesh with your tool's delaunay triangulation module. 
+			</ul>
+
+
+
+<div id="disclaimer"> <!-- filled in by config.js --></div>
+</div>
+
+</body>
+</html>
