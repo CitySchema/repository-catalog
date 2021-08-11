@@ -1,4 +1,5 @@
-# CitySchema: Simple Repository/Catalog for Publishing and Preserving a Detailed, Living 3D City Model
+# CitySchema: 
+## Simple Repository/Catalog for Publishing and Preserving a Detailed, Living 3D City Model
 This repository provides a framework for sharing a city model with a community collaborators who use diverse tools:
 
 * Geographic Information Systems
