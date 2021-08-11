@@ -1,3 +1,4 @@
+# CitySchema: Simple Repository/Catalog for Publishing and Preserving a Detailed, Living 3D City Model
 This repository provides a framework for sharing a city model with a community collaborators who use diverse tools:
 
 * Geographic Information Systems
@@ -31,6 +32,9 @@ The catalog folder contains all of the html pages, stylesheets, and javascript f
 Click the **Code** button to clone or download a zip of this archive.  Use your favorite text editor (I recommend the free Visual Studio Code application) to edit the files in the catalog folder.  Open the about.html page in your browser. Edit config.js to change something in the disclaimer or banner.  Observe how your saved changes are immediately reflected when you refresh the web page in your browser!
 
 To publish your collection on the web, simply copy the repository catalog to a directory that is accessible from your web server.  You should be live!
+
+## Coming Soon:
+We are now busy documenting the tools and workflows that we use for creating managing the model collection using ArcGIS Pro and Safe Software Feature Manipulation Engine.  We will be posting these on the pbcGIS GitHub site, soon. To follow our progress, visit www.pbcGIS.com/cityschema . 
 
 ## Acknowledgements
 CitySchema has been developed with support from the Boston Planning and Development Agency Office of Digital Cartography and GIS.  This is the latest burst of improvements that continues a collaboration and financial support of Harvard Graduate School of Design, Massachusetts Geographic Information System,  Harvard Center for Design Informatics, the Boston Redevelopment Authority, the City of Cambridge department of GIS and Historical Commission, Town of Brookline GIS, The Open Geospatial Consortium, The Massachusetts Institute of Technology Facilities Department, Harvard University Planning and Real Estate, Sasaki and Associates, Architects and many others. 
