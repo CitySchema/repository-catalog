@@ -88,6 +88,7 @@ function stylePicker(Status){
     var colorToUse;
     if (Status === "Current") colorToUse =  "grey"; //"#999966";
     else if (Status === "Under Construction") colorToUse = "darkcyan";//"#599C65";
+    else if (Status === "Construction Complete") colorToUse = "lightseagreen";//"#599C65";
     else if (Status === "Permitted") colorToUse = "green";
     else if (Status === "Board Approved") colorToUse = "lightgreen";
     else if (Status === "Permitted Demo") colorToUse = "orange";//"#4161BA";
@@ -273,16 +274,21 @@ var Esri_WorldTopoMap = L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest
     span outlines and changes the label to reflect the number of features. 
     NOTICE: the span class has "_" instead of " ". -->
 
-<table class="legend" style="width: 100%;">
+<table class="legend" style="width: 100%; font-size: 90%">
   <tr>
   <td style="vertical-align:top; width: 28%"><table>
   <tr><td><b> Active Buildings</b></td></tr>
   <tr><td><input type='checkbox' name='Status' value='Current' onclick="layerChecker(this)" disabled="true"> 
     <span class="Current"></span>
     <label for="Current"> Current (0)</label></td></tr>
-  <tr><td><input type='checkbox' name='Status' value='Under Construction' onclick="layerChecker(this)" disabled="true">
+  
+    <tr><td><input type='checkbox' name='Status' value='Under Construction' onclick="layerChecker(this)" disabled="true">
       <span class="Under_Construction"></span>
       <label for="Under Construction">Under Construction (0)</label></td></tr>
+
+  <tr><td><input type='checkbox' name='Status' value='Construction Complete' onclick="layerChecker(this)" disabled="true">
+      <span class="Construction_Complete"></span>
+      <label for="Construction Complete">Construction Complete (0)</label></td></tr>
   <tr><td><input type='checkbox' name='Status' value='Approved Demo' onclick="layerChecker(this)" disabled="true">
     <span class="Approved_Demo"></span>
     <label for="Approved Demo">Approved Demo (0)</label></td></tr>
@@ -366,18 +372,43 @@ $("#tileinfo").html(tileinfo);
     shared in formats intended to facilitate collaboration between diverse communities who have an interest in understanding places in the city as they have changed or as they may be changed.  
 </p> 
 <a href="http://www.bostonplans.org/3d-data-maps/3d-smart-model/3d-data-download">BPDA 3D Download Page</a>
-<a href="http://www.pbcgis/cityschema">About the CitySchema project</a>
+&nbsp;&nbsp;&nbsp;<a href="http://www.pbcgis/cityschema">About the CitySchema project</a>
 <p>
+
+
   <b>Disclaimer:</b> The Boston Planning and Development Agency (BPDA) recognizes the value and benefit gained by sharing Geospatial data. The BPDA makes no representations or guarantees about the accuracy, completeness, or currency of the information provided. The BPDA provides this data as is and with all faults, and makes no warranty of any kind. Each user is responsible for determining the suitability of the data for their intended use or purpose. Neither the City, the BPDA nor its affiliates, employees, or agents shall be liable for any loss or injury caused in whole or in part by use of any data obtained from this website. The geospatial data is updated and modified on a regular basis and users are encouraged to report any errors to the BPDA.
 </p>
 
-<h2>Open Format Model Collection</h2>
+		
+<h2>Dataset Description</h2>
 <p>
-  A 3D city model is useful for many types of research.  Within the BPDA applications are focused on urban planning and design review.  In the design and development community, city models are used to understand development alternatives.  People interested in the history of places can use the model as a resource and repository for obtaining and sharing observations of structures -- including ones that no longer exist or proposals that were never built.  Archivists and librarians will be interested in preserving 3D models of buildings just as they currently preserve collections of antique photographs, drawings and maps.    The 3D city model, like an old map, can be used to place independent documents in context to discover new information about the relationships among independent documents.
+The collection of 3D models of buildings, bridges and walls has been compiled frm many sources over many years.  The 3d Model catalog records the provenance of each model, the model's status (Historical, Current, or Proposed), geometric information about the model and links to pertinent resources. A deeper discussion of the organization of the model collection  can be found in the <a href="https://pbcgis.github.io/CitySchema-Bos3d-RepositoryCatalog/catalog/model_collection.htm" target="metadata">Bos3d Model Collection and Catalog</a> document.
 </p>
-<p>The collection of 3D building models is compiled from many sources and is updated frequently by the BPDA.  The collection and this open-format repository is designed to promote interdisciplinary exchange of information and long-term preservation.  One aspect of this design is the publication of the model collection as self-contained archive repositories that are composed of a collection Wavefront Object files which are related to tables of attribute information in CSV and geoJson formats. The catalog files provide a means of systematically addressing each building model for automated workflows. This ModelFinder page with its map is a demonstration of this catalog / repository.
-These archive repositories are available for download frm the BPDA's 3D Data Download page.  They are also designed to operate as stand-alone collection finding aids that operate without any need for a web server. 
+
+<p>The open-source building models collection provides 3D models and a catalog formats that are compatible with open-source tools for modeling, model transformation, web visualization and long-term archiving.
 </p>
+<p>The model collection is segmented into tiles.  Each model being assigned to the tile that its centroid falls within.  Each three-dimensional building, bridge and wall  model is formatted in <a href="https://www.loc.gov/preservation/digital/formats/fdd/fdd000507.shtml">Wavefront Object (.OBJ)</a> format and zipped with its materials (if it has any). A human-readable json file that includes the attributes of the model is included in the zip archive with each model.
+</p>
+<p>
+Each tile's collection includes a <b>Catalog Folder</b> that holds a catalog data file and a tile frame  and a low-resolution copy of the tile's base-map.  These resources are used by the <b>ModelFinder.htm</b> -- a simple javascript enabled page that creates an clickable model index map.  Clicking the model's footprint on the map reveals its attributes and a download link for the zipped OBJ package. The ModelFinder application provides a means for collaborators to discover and selectively download updated models.  
+</p><p>
+The ModelFinder application demonstrates how the tiled model archive and catalog can be used by open-source tool-chains to systematically access every model in the collection according to its attributes.   The catalog folder also contains a validation log that records the issues that our translation program discovered while converting the models from Geodatabase to .OBJ format. Most of these issues are repaired while writing to OBJ format. 
+</p><p>
+The tiled model collections are available from the <a href="http://www.bostonplans.org/3d-data-maps/3d-smart-model/3d-data-download" target="downloads">BPDA 3D Data Download Map</a>.  Users can download the entire Archive Catalog for any tile, or you can click the <b>Browse Individual Models</b> link to use that a tile's ModelFinder app to browse and download individual building models.
+
+<p>For users who download the entire open-source model repository and catalog for a tile, the ModelFinder application serves as a finding aid and model database whether or not your computer is connected to the internet.
+</p>
+
+
+<h2>Usage Notes</h2>
+<ul>
+<li>3D modeling tools make different assumptions about the axis orientation for  imported .OBJ models. If your model does not land in the appropriate location relative to your tile frame then change your import options to <b>Z-Up, Y-Forward</b>.  In other importers, such as the Skimp plugin for SketchUp, the option that works is <b>Rotate -90 degrees about the X axis.</b>
+<li>The tile frame included with each terrain model can be used to register models with neighboring tiles or with the city-wide tile grid.  The elevation of the tile polygon is always 0.
+<li>The Bos3d_TileFrame.GeoJSON file included with each model collection provides the latitude and longitude for each tile corner, and the State Plane coordinates for the tile center.  This information is very useful for transforming coordinates for building models from the Metro Boston 3D CRS into any other coordinate system you may need. 
+</ul>
+
+
+
 
 <h2 id="coordinates">Metro Boston 3D Coordinate System</h2>
 <p>Surveyors and engineers in Massachusetts prepare their official drawings using the Massachusetts State Plane Coordinate System with coordinates expressed in Feet.  The origin of the State Plane grid lies outside the state, which makes coordinate references much larger numbers than most most 3D modeling tools can deal with gracefully.  The creators of AutoCAD, 3DsMax, Rhino, SketchUp and Blender all recommend moving geospatially referenced geometry closer to the origin to avoid problems of precision when creating, transforming or rendering.  
