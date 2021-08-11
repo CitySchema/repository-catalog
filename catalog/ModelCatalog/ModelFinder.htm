@@ -1,0 +1,447 @@
+<!DOCTYPE html>
+<!-- This file is a self-contained HTML / javascript application that is intended for use as a 
+     map-based finding-aid for a collection of 3D models.  The model collection is a folder full of zipped OBJ files packaged with their associated material and texture files.  Each OBJ package also contains a json file that preserves the model's catalog information.  In the same folder wil all of these OBJ packages, there is a catalog folder that contains this HTML page and three other resources:
+        ModelCatalog_geojson.js   A catalog of the models as described in the data dictionary (included in the catalog folder.)
+        Frame_geojson.js  A rectangular frame that defined the edge of the model collection (usually a square tile)
+        Groundplan_2011.jpg  A ground plan reference map that is contemporary with the model collection 
+
+    The two .js files are geojson files that have been turned into .js files by adding a variable declaration in the first line.  This allows the data to be read from local files, which would otherwise violate the 'Same-Origin restriction... \/*\/'.
+
+    All of this amounts to a self-contained archival package that is intended to tell a person anything they would need to know to use the models in any sort of app or tool-chain that can read an OBJ file.
+    
+    For more information, visit www.pbcgis.com/metro3d
+
+-->
+<html>
+<head>
+  <meta charset=utf-8 />
+  <title>Model Finder</title>
+  <link rel="shortcut icon" type="image/x-icon" href="./css_js/favicon.ico" />
+
+  
+    <!-- Load local resources -->
+    <link rel="stylesheet" href="./css_js/metro3d/BOS3D.css">
+    <link rel="stylesheet" href="./css_js/leaflet/leaflet.css">
+    <script src="./css_js/leaflet/leaflet.js"></script>
+    <script src="./css_js/leaflet/Leaflet.ImageOverlay.Rotated.js"></script>
+    <script src="./css_js/leaflet/leaflet-tilelayer-colorfilter.js"></script>
+    <script src="./css_js/jquery/jquery-3.6.0.slim.min.js"></script>
+    <!--script src="./css_js/leaflet/esri-leaflet.js"></script -->
+
+    <!-- This is where we load the catalog.js which initializes a geojson object, ModelCatalog that has a polygon feature for every 
+       model in the associated models folder.  Each polygon is associated with all of the attributes for the model. The catalog file is shared as a plain JS file because web browsers don't allow loading local JSON files...  The conversion of json to js consists of adding a line, "var ModelCatalog = " at the top of the file.  Since the resulting variable is a JSON object, we can access pieces of it.  Like ModelCatalog.name will give us a nice title that identifies the Tile name and Issue Date.  ModelCatalog.features is the collection of attributed polygons.  -->
+       <script src="./ModelCatalog_geojson.js" type="text/javascript"></script>
+       <script src="./Frame_geojson.js" type="text/javascript"></script>
+       <script src="./data_dictionary.js" type="text/javascript"></script>
+
+
+  <style>
+
+    #map { position: absolute; top:0; bottom:0; right:0; left:0; }
+    
+    p {font-weight: normal}
+
+      table {
+          border-collapse: collapse !important;
+          border:none !important;
+      }
+      table.legend {
+           margin-top: 6px;
+           margin-bottom: 6px;
+      }
+      table td {
+        border: none;
+    }
+      /* legend boxes */
+      .legend span { border: 2px solid #ccc; 
+        opacity: 0.7;
+        float: left; 
+        width: 16px; 
+        height: 12px; 
+        margin: 2px; 
+        /* opacity:0.1; */
+      }
+
+</style>
+</head>
+<body>
+
+<div class="wide_column" style="padding-top: 2px;">
+  <h2 id="pagetitle">Model Finder</h2>
+<p>Zoom in and click model outlines to see attributes and download link for each model.</p>
+<div id="mapid" style="width: 100%; height: 450px;"></div>
+
+<script>
+  // ModelCatalog.name is part of the Catalog_geojson.js file that is loaded in the head section.
+  document.getElementById('pagetitle').innerHTML = ModelCatalog.name ;
+
+var frameStyle = {
+      "color": "#ff5050",
+      "weight": 2,
+      "opacity": 100,
+      "fillOpacity": 0
+ };
+
+
+
+function stylePicker(Status){
+    var colorToUse;
+    if (Status === "Current") colorToUse =  "grey"; //"#999966";
+    else if (Status === "Under Construction") colorToUse = "darkcyan";//"#599C65";
+    else if (Status === "Construction Complete") colorToUse = "lightseagreen";//"#599C65";
+    else if (Status === "Permitted") colorToUse = "green";
+    else if (Status === "Board Approved") colorToUse = "lightgreen";
+    else if (Status === "Permitted Demo") colorToUse = "orange";//"#4161BA";
+    else if (Status === "Approved Demo") colorToUse = "gold"//"#46C7FA";
+    else if (Status === "Demolished") colorToUse = "red";
+    else if (Status === "Modified") colorToUse = "tomato";
+    
+
+    else colorToUse = "#000000";
+
+    return {
+      "leaflet": {
+        "color": colorToUse,
+        "weight": 1.5
+      },
+      "css": {
+        "border-color": colorToUse,
+        "border-width": 2
+      }
+    }
+  }
+
+
+// frame_geojson.js is a geojson file that begins with "let framepoly ="  
+// Parse frame_geojson.js to get bounds and corner points for aligning the off-line image. 
+// should be just one frame poly.
+//
+console.log('Frames has ' + framePoly.features.length + " 1 " + framePoly.features[0].geometry.type) ; 
+// has 5 coordinates
+console.log('Frame has ' + framePoly.features[0].geometry.coordinates[0].length + " Coordinate pairs"); 
+
+let lats = [], lons = []
+for (var j = 0; j < framePoly.features[0].geometry.coordinates[0].length; j++) {
+    lons.push(framePoly.features[0].geometry.coordinates[0][j][0]);
+    lats.push(framePoly.features[0].geometry.coordinates[0][j][1]);
+    console.log(framePoly.features[0].geometry.coordinates[0][j][0],framePoly.features[0].geometry.coordinates[0][j][1])
+  }
+
+//     Because the tile polygons are rotated 0.6 degrees clockwise:
+//     the south-east corner is going to have the lowest latitude (farthest south)
+//     the south-West corner is going to have the lowest longidude (negative) (Farthest west)
+//     the North-West corner is going to have the highest latitude  (Farthest North)
+//     the North-East corner is going to have the highest longitude (negative) (Farthest East)
+let sw_coord = [],
+    nw_coord = [],
+    ne_coord = [],
+    se_coord = [];
+
+    sortedlons = lons.sort(function(a, b){return a - b});
+    sortedlats = lats.sort(function(a, b){return a - b});
+    let numcoords = lats.length -1;
+    //One coordinate of each corner can be determined by the sorted values 
+    sw_coord[0] = sortedlons[0];            // most west longituude
+    ne_coord[0] = sortedlons[numcoords];    // most East Longitude
+    se_coord[1] = sortedlats[0];           // most south latitude
+    nw_coord[1] = sortedlats[numcoords];    // most north latitude
+    //The other coordinate can be found in the original frame coordinates by matching the now known mate.
+
+  for (var j = 0; j < framePoly.features[0].geometry.coordinates[0].length; j++) {
+      if (framePoly.features[0].geometry.coordinates[0][j][0] == sw_coord[0]) {
+        sw_coord[1] = framePoly.features[0].geometry.coordinates[0][j][1];
+      }
+      if (framePoly.features[0].geometry.coordinates[0][j][0] == ne_coord[0]) {
+        ne_coord[1] = framePoly.features[0].geometry.coordinates[0][j][1];
+      }
+      if (framePoly.features[0].geometry.coordinates[0][j][1] == se_coord[1]) {
+        se_coord[0] = framePoly.features[0].geometry.coordinates[0][j][0];
+      }
+      if (framePoly.features[0].geometry.coordinates[0][j][1] == nw_coord[1]) {
+        nw_coord[0] = framePoly.features[0].geometry.coordinates[0][j][0];
+      }
+  }
+
+console.log("sw " + sw_coord + "\n" + "nw " + nw_coord + "\n" + "ne " + ne_coord + "\n" + "se " + se_coord);
+
+
+  // We are going to divide the features form our geojson object, allocating them to layer groups according to their value of status. 
+  // The lists of Status occurrences will be tabulated on the fly as the features are read from the geojson file. 
+  
+  var map = L.map('mapid', {minZoom: 11, zoomSnap: 0.5, maxZoom: 18}).setView([42.31591, -71.057], 11.25) ;
+
+
+  // statusLgs will be a collection of layer groups that are used to group model footprints 
+  //according to their Status. This collection of layer groups is built as we look through each 
+  // feature in the ctalog_geojson.js.
+  // This list is going to be used to draw the status check-boxes and wil be important fro keeping track of which layer groups are on or off. Each layer group wil also be associated with a count of the number of footprints.
+  class statusLG {
+  constructor(name, count, lGroup) {
+    this.name = name;
+    this.count = count;
+    this.lGroup = lGroup;
+    }
+  }
+  const statusLgs = {}; 
+function onEachFeature(feature, layer) {
+ 
+    //For each model footprint.  Check to see if a layergroup has been created for that staus already.
+    // If not, create a layer group that is in a dictionary  
+    // if the lg is not already in the dictionary, create a new one and add it to the map and the dictionary.
+        if (statusLgs[feature.properties.Status] === undefined) {
+          console.log("Initializing new status class: " + feature.properties.Status);
+          statusLgs[feature.properties.Status] = new statusLG();
+          statusLgs[feature.properties.Status].name = feature.properties.Status;
+          statusLgs[feature.properties.Status].count = 0;
+          statusLgs[feature.properties.Status].lGroup = new L.layerGroup;
+      }
+    
+      popupContent = "<b>Download Model </b><a href='../" + feature.properties.Model_ID + "_OBJ.zip'>" + feature.properties.Model_ID + "_OBJ.zip</a>" 
+      popupContent += "<h3>Model Catalog Record</h3> <table>"
+       for (var key in feature.properties ){
+        var popupContent;
+        popupLine = "<tr><td><b>" + key + ": </b></td><td>" +  feature.properties[key] + "</td></tr>";
+        popupContent += popupLine;
+       }
+       popupContent += "</table>";
+       var popup = L.popup({maxHeight: 225}).setContent(popupContent);
+    layer.bindPopup(popup);
+    layer.setStyle(stylePicker(feature.properties.Status).leaflet);
+
+    statusLgs[feature.properties.Status].count += 1;
+    //add the feature to the layergroup assigned to its status. 
+    statusLgs[feature.properties.Status].lGroup.addLayer(layer);      
+	}  // Closes onEachFeature
+
+
+  // This geojson object has been smuggled in through the catalog.js file imported at the top of this file. 
+	L.geoJSON([ModelCatalog], {
+    attribution: 'Created by <a href="http://pbcGIS.com">pbcGIS.com</a>',
+    onEachFeature: onEachFeature,
+});
+
+
+ // This geojson object has been smuggled in through the frame_geojson.js file imported at the top of this file. 
+ let framefeature = L.geoJSON([framePoly], {
+    attribution: 'Created by <a href="http://pbcGIS.com">pbcGIS.com</a>',
+    style: frameStyle,
+    interactive: false,
+}).addTo(map);
+
+
+
+var Esri_WorldTopoMap = L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Topo_Map/MapServer/tile/{z}/{y}/{x}', {
+	attribution: 'Basemap: ESRI',
+  opacity: 0.4,
+}).addTo( map );
+
+
+    console.log("Drawing fallback layer");
+  var topleft  = L.latLng([nw_coord[1],nw_coord[0]]),
+	topright   = L.latLng([ne_coord[1],ne_coord[0]]),
+	bottomleft = L.latLng([sw_coord[1],sw_coord[0]]);
+
+  map.fitBounds([bottomleft,topright]);
+
+   var overlay = L.imageOverlay.rotated("./Groundplan_2011.jpg", topleft, topright, bottomleft, {
+	attribution: "MassGIS, pbcGIS",
+  opacity: 0.5
+}).addTo(map);
+
+
+  // This is the on-click function for our legend check-boxes (below thelegend html)
+  function layerChecker(checkbox) {
+    console.log("Hey! " + checkbox.value + " " + checkbox.checked );
+    var lg = statusLgs[checkbox.value].lGroup;
+    if (checkbox.checked) {
+      map.addLayer(lg);
+    }else{
+      console.log("Removing " + checkbox.value);
+      map.removeLayer(lg);
+    }
+  }
+
+
+ 
+
+
+</script>
+
+
+
+<!-- The legend starts with a static table with a slot for each of the potential values of Status
+     with the checkbox disabled and the default box.  On page load, a script (below) assigns colors to the 
+    span outlines and changes the label to reflect the number of features. 
+    NOTICE: the span class has "_" instead of " ". -->
+
+<table class="legend" style="width: 100%; font-size: 90%">
+  <tr>
+  <td style="vertical-align:top; width: 28%"><table>
+  <tr><td><b> Active Buildings</b></td></tr>
+  <tr><td><input type='checkbox' name='Status' value='Current' onclick="layerChecker(this)" disabled="true"> 
+    <span class="Current"></span>
+    <label for="Current"> Current (0)</label></td></tr>
+  
+    <tr><td><input type='checkbox' name='Status' value='Under Construction' onclick="layerChecker(this)" disabled="true">
+      <span class="Under_Construction"></span>
+      <label for="Under Construction">Under Construction (0)</label></td></tr>
+
+  <tr><td><input type='checkbox' name='Status' value='Construction Complete' onclick="layerChecker(this)" disabled="true">
+      <span class="Construction_Complete"></span>
+      <label for="Construction Complete">Construction Complete (0)</label></td></tr>
+  <tr><td><input type='checkbox' name='Status' value='Approved Demo' onclick="layerChecker(this)" disabled="true">
+    <span class="Approved_Demo"></span>
+    <label for="Approved Demo">Approved Demo (0)</label></td></tr>
+  <tr><td><input type='checkbox' name='Status' value='Permitted Demo' onclick="layerChecker(this)" disabled="true"> 
+    <span class="Permitted_Demo"></span>
+    <label for="Permitted Demo">Permitted Demo (0)</label></td></tr>
+ 
+  </table></td>
+  
+<td style="vertical-align:top; width: 24%"><table>
+<tr><td> <b>Proposed Buildings</b></td></tr>
+<tr><td> <input type='checkbox' name='Status'   value='Permitted' onclick="layerChecker(this)" disabled="true">
+  <span class="Permitted"></span>
+  <label for="Permitted">Permitted (0)</label></td></tr>
+<tr><td> <input type='checkbox' name='Status' value='Board Approved' onclick="layerChecker(this)" disabled="true">
+  <span class="Board_Approved"></span>
+  <label for="Board Approved">Approved (0)</label></td></tr>
+
+</table></td>
+
+<td style="vertical-align:top; width: 24%"><table>
+<tr><td><b> Model History</b></td></tr>
+<tr><td> <input type='checkbox' name='Status'   value='Demolished' onclick="layerChecker(this)" disabled="true">
+  <span class="Demolished"></span>
+  <label for="Demolished">Demolished (0)</label></td></tr>
+<tr><td> <input type='checkbox' name='Status'   value='Modified' onclick="layerChecker(this)" disabled="true">
+  <span class="Modified"></span>
+  <label for="Modified">Modified (0)</label></td></tr>
+</table></td>
+
+<td style="vertical-align:top; width: 24%">
+  <div id="tileinfo">
+  <table>
+    <tr><td><b>Frame Center:</b></td></tr>
+    <tr><td>Latitude: </td></tr>
+    <tr><td>Longitude: </td></tr>
+    <tr><td>X Offest: </td></tr>
+    <tr><td>Y Offest: </td></tr>
+  </table>
+  </div>
+
+</td></tr></table>
+
+<script>
+// Here is where we fill in details in the lagend -- updating the label; with the feature count 
+  // and assigning colors to the legend boxes. 
+  for (var key in statusLgs){
+     console.log('adding LayerGroup ' + key)
+     lg = statusLgs[key].lGroup;
+     lg.addTo(map);
+     $('label[for="'+key+'"]').html(key + ' (' + statusLgs[key].count + ')');
+     $('input[value="'+key+'"]').prop("disabled", false);
+     $('input[value="'+key+'"]').prop("checked", true);
+     console.log("mystyle is: ", stylePicker(key).css)
+     nospaceKey = key.replace(" ", "_");
+     $("."+nospaceKey).css(stylePicker(key).css);
+  }
+
+ //extract frame center info by readnig the properties frm the frame_gejson.js (where framePoly is set.)
+ let tilecntr_lat = framePoly.features[0].properties["Lat"];
+  //tilecntr_lat = tilecntr_lat.toString().slice(0, -1);
+  var tilecntr_lon = framePoly.features[0].properties["Lon"];
+  //tilecntr_lon = tilecntr_lon.toString().slice(0, -1);
+  var tilecntr_x = framePoly.features[0].properties["BosShift_X"];
+  var tilecntr_y = framePoly.features[0].properties["BosShift_Y"];
+  tileinfo = `
+  <table style="font-size: 14px">
+    <tr><td><b>Frame Center:  </b></td></tr>
+    <tr><td><b>Latitude:</b> ` + tilecntr_lat + `</td></tr>
+    <tr><td><b>Longitude:</b> ` + tilecntr_lon + `</td></tr>
+    <tr><td><b>Metro3d Y:</b> ` + tilecntr_x +`</td></tr>
+    <tr><td><b>Metro3d X:</b> ` + tilecntr_y + `</td></tr>
+  </table>
+`
+$("#tileinfo").html(tileinfo);
+
+</script>
+
+<h2>Context</h2>
+<p>The Boston Planning and Development Agency (BPDA) maintains a 3D model of the city as a visualization and analytical tool for understanding ideas related to the future of neighborhoods.  The BPDA city model is constructed of several components: Terrain, Groundplan, and 3D models of buildings.  Each of these components is
+    shared in formats intended to facilitate collaboration between diverse communities who have an interest in understanding places in the city as they have changed or as they may be changed.  
+</p> 
+<a href="http://www.bostonplans.org/3d-data-maps/3d-smart-model/3d-data-download">BPDA 3D Download Page</a>
+&nbsp;&nbsp;&nbsp;<a href="http://www.pbcgis/cityschema">About the CitySchema project</a>
+<p>
+
+
+  <b>Disclaimer:</b> The Boston Planning and Development Agency (BPDA) recognizes the value and benefit gained by sharing Geospatial data. The BPDA makes no representations or guarantees about the accuracy, completeness, or currency of the information provided. The BPDA provides this data as is and with all faults, and makes no warranty of any kind. Each user is responsible for determining the suitability of the data for their intended use or purpose. Neither the City, the BPDA nor its affiliates, employees, or agents shall be liable for any loss or injury caused in whole or in part by use of any data obtained from this website. The geospatial data is updated and modified on a regular basis and users are encouraged to report any errors to the BPDA.
+</p>
+
+		
+<h2>Dataset Description</h2>
+<p>
+The collection of 3D models of buildings, bridges and walls has been compiled frm many sources over many years.  The 3d Model catalog records the provenance of each model, the model's status (Historical, Current, or Proposed), geometric information about the model and links to pertinent resources. A deeper discussion of the organization of the model collection  can be found in the <a href="https://pbcgis.github.io/CitySchema-Bos3d-RepositoryCatalog/catalog/model_collection.htm" target="metadata">Bos3d Model Collection and Catalog</a> document.
+</p>
+
+<p>The open-source building models collection provides 3D models and a catalog formats that are compatible with open-source tools for modeling, model transformation, web visualization and long-term archiving.
+</p>
+<p>The model collection is segmented into tiles.  Each model being assigned to the tile that its centroid falls within.  Each three-dimensional building, bridge and wall  model is formatted in <a href="https://www.loc.gov/preservation/digital/formats/fdd/fdd000507.shtml">Wavefront Object (.OBJ)</a> format and zipped with its materials (if it has any). A human-readable json file that includes the attributes of the model is included in the zip archive with each model.
+</p>
+<p>
+Each tile's collection includes a <b>Catalog Folder</b> that holds a catalog data file and a tile frame  and a low-resolution copy of the tile's base-map.  These resources are used by the <b>ModelFinder.htm</b> -- a simple javascript enabled page that creates an clickable model index map.  Clicking the model's footprint on the map reveals its attributes and a download link for the zipped OBJ package. The ModelFinder application provides a means for collaborators to discover and selectively download updated models.  
+</p><p>
+The ModelFinder application demonstrates how the tiled model archive and catalog can be used by open-source tool-chains to systematically access every model in the collection according to its attributes.   The catalog folder also contains a validation log that records the issues that our translation program discovered while converting the models from Geodatabase to .OBJ format. Most of these issues are repaired while writing to OBJ format. 
+</p><p>
+The tiled model collections are available from the <a href="http://www.bostonplans.org/3d-data-maps/3d-smart-model/3d-data-download" target="downloads">BPDA 3D Data Download Map</a>.  Users can download the entire Archive Catalog for any tile, or you can click the <b>Browse Individual Models</b> link to use that a tile's ModelFinder app to browse and download individual building models.
+
+<p>For users who download the entire open-source model repository and catalog for a tile, the ModelFinder application serves as a finding aid and model database whether or not your computer is connected to the internet.
+</p>
+
+
+<h2>Usage Notes</h2>
+<ul>
+<li>3D modeling tools make different assumptions about the axis orientation for  imported .OBJ models. If your model does not land in the appropriate location relative to your tile frame then change your import options to <b>Z-Up, Y-Forward</b>.  In other importers, such as the Skimp plugin for SketchUp, the option that works is <b>Rotate -90 degrees about the X axis.</b>
+<li>The tile frame included with each terrain model can be used to register models with neighboring tiles or with the city-wide tile grid.  The elevation of the tile polygon is always 0.
+<li>The Bos3d_TileFrame.GeoJSON file included with each model collection provides the latitude and longitude for each tile corner, and the State Plane coordinates for the tile center.  This information is very useful for transforming coordinates for building models from the Metro Boston 3D CRS into any other coordinate system you may need. 
+</ul>
+
+
+
+
+<h2 id="coordinates">Metro Boston 3D Coordinate System</h2>
+<p>Surveyors and engineers in Massachusetts prepare their official drawings using the Massachusetts State Plane Coordinate System with coordinates expressed in Feet.  The origin of the State Plane grid lies outside the state, which makes coordinate references much larger numbers than most most 3D modeling tools can deal with gracefully.  The creators of AutoCAD, 3DsMax, Rhino, SketchUp and Blender all recommend moving geospatially referenced geometry closer to the origin to avoid problems of precision when creating, transforming or rendering.  
+</p><p>
+To facilitate on-going exchange of 3D models, the BPDA has chosen a default offset that places the origin to the South-West of Boston and neighboring cities. While this shifter coordinate system may not be exactly what you want to use for your modeling project, preserving the position of the insertion point and a tile boundary in your models will make it easy to exchange updates with other Metro 3D Boston users.
+</p>
+
+<p><b>Projected Coordinate System:</b> State Plane Massachusetts Mainland (Feet),  North American Datum of 1983.
+<p><b>Vertical Coordinate System for 3D data:</b> North American Vertical Datum, 1988 (NAVD 88) Feet (Height)
+</p>
+<P><b>Origin / Offset / Insertion Point </B>
+<p>The origin of the Metro 3D Boston coordinate system serves as the insertion point for models.
+ <UL>
+     <LI>State Plane Coordinates:</b>
+    <ul> <li><b>X:</b>731,100 feet
+         <li><b>Y:</b>2,902,900 feet
+        <li><b>Elevation:</b> 0 feet
+    </ul>
+<li><b>Geographic:</b>
+<ul><li><b>Longitude:</b> 71.223391 W 
+    <li><b>Latitude:</b> 42.213379 N 
+</ul>
+</ul>
+<p><b>To align Metro 3D Boston grid with True North:</b>  Rotate 0.34 Degrees  clockwise. 
+  <P>To georeference SketchUp tiles for interoperability with SketchUp's geolcoation tools, see the <a href="./SketchUp_Model.htm#georeference" target="metadata">Notes at the bottom of the SketchUp Models page</a>.  
+<h3>Transformation Hints</h3>
+<p>Developers of web applications may be interested in translating these models to WGS84 or arbitrary cartesian coordinates.  This requirement has been addressed by including the Latitude and Longitude along with the X and Y offsets for the 2-D centroid of each model and tile boundary. Tiles are 5000 by 5000 feet. 
+</p>
+
+
+  <div id="datadictionary">Contents loaded from data_dictionary.js (loaded in header)</div>
+  
+
+</div> <!-- closes content div -->
+</body>
+</html>

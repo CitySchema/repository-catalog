@@ -1,0 +1,325 @@
+
+
+body {
+  /*margin: auto;*/ 
+  margin: 0;
+  font: 15px "myriad-pro", Arial, Helvetica, sans-serif;
+  background: #a7a09a;
+  /*width: 1020px; */
+}
+
+#nav3d {    /*The little table of quick-links that is usually beow the context block */
+    max-width: 50%;
+    display: flex;
+    justify-content: space-between;
+    margin-right: 20px;
+    font: 10px;
+  }
+
+
+a:visited {
+    color: #058ea0;
+    }
+    
+a {
+    color: #058ea0;
+    }   
+
+a:hover {
+        color: #058e52;
+        background: yellow;
+        }
+    
+
+.banner {
+        /*width: 775px; */
+        /*float: right; */
+        background: whitesmoke;
+        margin-top: 0;
+        padding-right: 25px;
+        /*padding-top: 25px;*/
+        display: block;
+}
+
+h1.banner  {
+    position: relative;
+    z-index: 10;
+    display: inline-block;
+    max-width: 461px;
+    color: #fff;
+    font-family: FFLegatoWebBold,'Open Sans',sans-serif;
+    font-size: 20px;
+    line-height: 20px; 
+    text-transform: none;
+    padding: 5px 15px 5px 30px;
+    margin-top: 5px;
+    margin-left: -25px;
+    background: #00a7b5;
+}
+
+
+.wide_column {
+    width: 775px; 
+    background: whitesmoke;
+    margin: auto;
+    padding-top: 25px;
+    padding-left: 25px;
+    padding-right: 25px;
+    padding-bottom: 25px; 
+
+}
+
+.block_right {
+display: block;
+float: right;
+width: 330px;
+margin: 0 0 10px 10px;
+padding-left: 20px;
+}
+
+.block_right img {
+display: block;
+width: 325px;
+}
+
+.block_right p
+{
+    display: block;
+position: relative;
+font-style: italic;
+float: right;
+width: 325px;
+}
+
+.block_middle
+{
+display: flex;
+width: 100%;
+align-items: center;
+justify-content: center;
+/*display:inline-block;*/
+/*margin-left: 5%;*/
+}
+
+
+
+.block_middle img
+{
+    display: inline;
+}
+
+div.block_middle p
+{
+font-style: italic;
+display: inline;
+}
+
+
+.fig_middle{
+    text-align:center;
+    font-style: italic;
+}
+.fig_middle img {
+    width: 700px
+}
+
+
+.fig_right {
+    float: right;
+    margin: 5px;
+    padding-left: 10px;
+    width: 350px;
+    font-style: italic;
+ }
+ 
+h1, h2, h3, h4, h5, h6 {
+    color: #00a7b5;
+    font-family: FFLegatoWebBold,'Open Sans',sans-serif;
+    font-weight: 700;
+    /*margin: 0.5em 0em; */
+}
+
+
+h1 {
+    /*color: #00345b; */
+    font-size: 2em;
+    margin: 0em 0em; 
+    margin-bottom: 0.3em; 
+}
+
+
+h2 {
+    /*margin: 0.5em 0em; */ 
+    margin-block-end: 0.1em;
+    font-size: 1.4em;
+}
+
+h3 {
+    /*margin: 0.5em 0em; */ 
+    margin-block-start: 0.7em;
+    margin-block-end: 0.2em;
+    font-size: 1em;
+}
+
+
+p {
+    color: #333;
+    display: block;
+    line-height: 1.5em;
+    margin-block-start: 0;
+    padding-block-start: 0.5em;
+    margin-block-end: 0.3em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0.5px;
+    margin-bottom: 0.5em;
+    font: 15px, "myriad-pro", Arial, Helvetica, sans-serif;
+}
+
+li {
+    color: #333;
+/*    display: block; */
+    /*line-height: 1.4em; */
+    /*line-height: 1em; */
+    /*margin-bottom: 1.165em; */
+    /*font: 87.5% "myriad-pro", Arial, Helvetica, sans-serif;*/
+}
+
+ul {
+    list-style: none; /* Remove default bullets */
+        display: block;
+        margin-block-start: 0;
+        margin-block-end: 1em;
+        margin-inline-start: 0px;
+        margin-inline-end: 0px;
+        padding-inline-start: 40px;
+  }
+ul li::before {
+    content: "\2022";  /* Add content: \2022 is the CSS Code/unicode for a bullet */
+    color: #eb8181; /* Change the color */
+    font-weight: 1000; /* If you want it to be bold */
+    display: inline-block; /* Needed to add space between the bullet and the text */
+    width: 1em; /* Also needed for space (tweak if needed) */
+    margin-left: -1em; /* Also needed for space (tweak if needed) */
+  }
+
+
+table.dictionary {
+    width: 85%; 
+    margin-left: 25px;
+    margin-right: 50px;
+    border-collapse: collapse;
+    font: 87.5% "myriad-pro", Arial, Helvetica, sans-serif;
+}
+table.dictionary tr:nth-child(even) {
+    background: #f5f3f3;
+}
+table.dictionary tr:nth-child(odd) {
+    background: #e1e1e1;
+}
+
+table.dictionary td {
+     /*padding: .5em 1em;*/
+    vertical-align: top;
+    line-height: 1.5em; 
+    border: 1px solid #B3B2B2;
+}
+table.dictionary th {
+    padding: .5em 1em;
+    vertical-align: top;
+    background:  #bfbfbf;
+    font-weight: normal;
+    padding: .5em 1em;
+    text-align: left;
+    border: 1px solid #b3b2b2;
+    font-weight: bold;
+}
+
+table.dictionary p {
+    margin-bottom: 0.6em;
+    margin-block-end: 0.6em;
+}
+
+
+
+table.dddthumbs td {      /* Used for the 3d thumbnails o the downloads page */
+   border-collapse:collapse !important;
+   border: none !important;
+   margin: 0 !important;
+   padding: 0 !important;
+   }
+
+   iframe{             /* Iframe used for clickable tile map */
+    overflow: hidden;
+    border: none !important;
+    width: 110%;
+  }     
+
+/* I think that the followng are used to style information in the clickable tile map. */
+
+  .tooltip {
+    position: relative;
+    display: inline-block;
+    border-bottom: 1px dotted black;
+  }
+  
+  .tooltip .tooltiptext {
+    visibility: hidden;
+    width: 120px;
+    background-color: black;
+    color: #fff;
+    text-align: center;
+    border-radius: 6px;
+    padding: 5px 0;
+  
+    /* Position the tooltip */
+    position: absolute;
+    z-index: 1;
+  }
+  
+  .tooltip:hover .tooltiptext {
+    visibility: visible;
+  }
+
+  /* For the pop-up in the clickable tile map. */
+  .filelist p {
+    color: #333;
+    display: block;
+    margin: 0;
+    padding: 0;
+    font: 87.5% "myriad-pro", Arial, Helvetica, sans-serif;
+  }
+
+.filelist h2 {
+    color: #333;
+    display: block;
+    line-height: 1.1em;
+    margin-bottom: 0.5em;
+    font: 92% "myriad-pro", Arial, Helvetica, sans-serif;
+  }
+
+table.filelist td {
+   border-collapse:collapse;
+   border: none;
+   margin: 0;
+   padding: 0;
+   }
+
+
+  /* The sidebar menu NOT used at the moment.  But we will keep this just in case. */
+.sidenav {
+    padding-top: 25px;
+    padding-left: 25px;
+    padding-right: 25px;
+    padding-bottom: 25px; 
+    height: 100%; /* Full-height: remove this if you want "auto" height */
+    width: 195px; /* Set the width of the sidebar */
+    position: fixed; /* Fixed Sidebar (stay in place on scroll) */
+    z-index: 1; /* Stay on top */
+    top: 0; /* Stay at the top */
+    left: 0;
+    background: #e3e3e3;
+    border-right: 1px solid #6b6b6b;
+    overflow-x: hidden; /* Disable horizontal scroll */
+
+  }
+  
