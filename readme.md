@@ -12,7 +12,7 @@ This schema has been developed over a 20year period of collaboration between mun
 
 The CitySchema Repository uses a system of tiled modules and simple arrangement of files to create a coherent referencing scheme for detailed terrain models, ground plan images and a collection of building, bridge and wall models -- which are each individually referenced.
 
-Catalog data is provided in JSON format, which is used for systematically addressing each model with easy-to-use finder maps.  The same catalog files can be used by application developers to create new applications using city model components.  Each model resource is described with HTML metadata that is integrated with the catalog maps.  Each Building, Bridge and Wall model is associated with catalog information describing its provenance, technical lifecycle and temporal status. 
+Catalog data is provided in JSON and CSV format, systematically addresses each model.  This data is demonstrated with easy-to-use finder maps for tiled models and individual building models.  The same catalog files can be used by programmers to create new applications using city model components.   Each model resource is described with HTML metadata that is integrated with the catalog maps.  Each Building, Bridge and Wall model is delivered with a JSON file that describes its provenance, technical lifecycle and temporal status. 
 
 This Repository Catalog addresses each of the requirements for the International Standards Organization Reference Model for an Open Archive Information System.  It may be used to assure the integrity of city-model assets for long-term preservation, and for the extension and improvement of the city model collection by a variety of users.
 
