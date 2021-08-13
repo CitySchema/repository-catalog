@@ -120,6 +120,10 @@ console.log('Frames has ' + framePoly.features.length + " 1 " + framePoly.featur
 // has 5 coordinates
 console.log('Frame has ' + framePoly.features[0].geometry.coordinates[0].length + " Coordinate pairs"); 
 
+// We use the coordinates of the frame corners to figure out the placement of the groundplan image.
+// the L.imageOverlay.rotated module can georeference a local image which is especially helpful if 
+// the web-based base map is not accessible. 
+
 let lats = [], lons = []
 for (var j = 0; j < framePoly.features[0].geometry.coordinates[0].length; j++) {
     lons.push(framePoly.features[0].geometry.coordinates[0][j][0]);
