@@ -29,19 +29,19 @@
         
 
 <h2 id="purpose">Tiling Strategy</h2>
-<p>The tiling scheme for the BPDA's 3D model serves as a framework for sharing a detailed model of metropolitan extent with design tools that are limited in terms of spatial extent and file-size.  By dividing the city-wide model components into snap-together modules, the tile grid provides a framework for registering model collections and terrain meshes that can be precisely snapped together and draped with a variety clipped groundplan images. 
+<p>The tiling scheme for the BPDA's 3D model serves as a framework for sharing a detailed model of metropolitan extent with design tools that are limited in terms of spatial extent and file-size.  By dividing the city-wide model components into snap-together modules, the tile grid provides a framework for registering model collections and terrain meshes that can be precisely snapped together and draped with a variety tiled groundplan images. 
 </p>
 
     <h2 id="coordinates">Metro Boston 3D Coordinate System</h2>
     <p>Surveyors and engineers in Massachusetts prepare their official drawings using the Massachusetts State Plane Coordinate System with coordinates expressed in Feet.  The origin of the State Plane grid lies outside the state, which makes coordinate references much larger numbers than most most 3D modeling tools can deal with gracefully.  The creators of AutoCAD, 3DsMax, Rhino, SketchUp and Blender all recommend moving geospatially referenced geometry closer to the origin to avoid problems of precision when creating, transforming or rendering.  
     </p><p>
-    To facilitate on-going exchange of 3D models, the BPDA has chosen a default offset that places the origin to the South-West of Boston and neighboring cities. While this shifter coordinate system may not be exactly what you want to use for your modeling project, preserving the position of the insertion point and a tile boundary in your models will make it easy to exchange updates with other Metro 3D Boston users.
+    To facilitate on-going exchange of 3D models, the BPDA has chosen a default offset that places the origin to the South-West of Boston and neighboring cities. We expect modelers to use project-specific coordinate origins.  Preserving the Metro3D insertion point and a tile boundary with models will make it easy to incorporate updates and exchange models with other Metro 3D Boston users whith perfect geo-registration.
 
     <p><b>Projected Coordinate System:</b> State Plane Massachusetts Mainland (Feet),  North American Datum of 1983.
-    <p><b>Vertical Coordinate System for 3D data:</b> North American Vertical Datum, 1988 (NAVD 88) Feet (Height)
-    </p>
-        <P><b>Origin / Offset / Insertion Point </B>
-            <p>The origin of the Metro 3D Boston coordinate system serves as the insertion point for models.
+    <br><b>Vertical Coordinate System for 3D data:</b> North American Vertical Datum, 1988 (NAVD 88) Feet (Height)
+    
+        <br><b>Origin / Offset / Insertion Point </B>
+            <br>The origin of the Metro 3D Boston coordinate system serves as the insertion point for models.
      <UL>
          <LI>State Plane Coordinates:</b>
         <ul> <li><b>X:</b>731,100 feet
@@ -52,20 +52,18 @@
         <li><b>Latitude:</b> 42.213379 N 
     </ul>
 </ul>
-<p><b>To align Metro 3D Boston grid with True North:</b>  Rotate 0.34 Degrees  clockwise. 
+<p><b>To align Metro 3D Boston grid with True North:</b>  Rotate 0.34 Degrees clockwise. 
 <P>To georeference SketchUp tiles for interoperability with SketchUp's geolcoation tools, see the <a href="./sketchup_model.htm#georeference" target="metadata">Notes at the bottom of the SketchUp Models page</a>.  
-
 
 <h2 id="tips">Tips for Geo-Location and Integrating Updates</h2>
 <p>Maintain geolocation in your models to easily integrate updates from other Metro Boston 3D collaborators. 
     <ul>
-    <li>When importing this reference grid into your model be sure tospecify units of Feet and check the tile-width (5000 feet) to be sure. 
-
+    <li>When importing this reference grid into your model be sure to specify units of Feet and check the tile-width (5000 feet) to be sure. 
     <li>Define your model origin, orientation, and scale to suit your project's requirements.  
     <li>Keep the Metro 3D insertion point and tile boundary in your project to assure easy and precise registration of updates from other Metro Boston 3D sources with your project and vice-versa. 
+    <li>To import new models from Metro 3D Boston users, snap to the original insertion point.  It may no longer be at 0,0,0, but it is the relative location that counts. 
     <li>To prepare your models for exchange with other Metro Boston 3D collaborators:
         <ol>
-            <li>If your project coordinate system has required any rotation frm the Massachusetts State Plane or the Metro Boston 3D Grid, then you should import the original reference grid back intoyour model.
             <li> shift selected geometry with the insertion point back to 0,0,0. Scale and un-rotate, if necessary, to align the upper-right corner of your tile boundary with the reference grid. 
             <li>Now you can export or import geometry for easy snap-in registration!
             </ol>
