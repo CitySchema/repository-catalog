@@ -96,18 +96,20 @@ The real-world structures represented by models in the collection may exist or m
 <p>Long-term archiving and open-source applications (like most web visualization tools) require that 3D models and their attributes be exchanged using open formats.  Most commonly, the <a href="https://www.loc.gov/preservation/digital/formats/fdd/fdd000507.shtml">Wavefront Object format (.OBJ)</a>.  In .obj format, models are files that may be accompanied by a set of shading instructions and potentially folder of image textures.  Our open-format model collection the files related to a building model are packaged in a zip archive that is named with the unique <b>Model_ID</b> that refers to the catalog record for that model. <a href="./tiled_terrain.htm">Tiled terrain models</a> are also shared in OBJ format with ground-plan textures. 
 </p>
 
-<div class="fig_right">
-    <img class="fig_right" src="./images/ModelFinder.jpg">
-    <p class="fig_right">Each tile comes with a clickable model-finder map.</p>
-</div>
+
 <h2>The Open Format Model Archive and Catalog</h2>
 The open format model archive and catalog package has been designed to fulfill the functional requirements of the <p>The ISO reference model for an <a href="https://en.wikipedia.org/wiki/Open_Archival_Information_System">Open Archival Information System (OAIS)</a> for long-term preservation, validation and exchange of assets between applications. 
 </p><p>
 The open format model collection is segmented by tiles.  Each tile-specific model collection may be downloaded in full from the <a href="./tiled_index.htm">clickable tile map</a> 
 or used on-line to locate and download individual model files.  
-</p><p>
-Each tile's model collection contains an open-format rendition of each building model in <a href=https://www.loc.gov/preservation/digital/formats/fdd/fdd000507.shtml">Wavefront Object format (.OBJ)</a>.  This model is zipped along with a json file that carries all of the model's attributes. 
 </p>
+<div class="fig_right">
+    <img class="fig_right" src="./images/ModelFinder.jpg">
+    <p class="fig_right">Each tile comes with a clickable model-finder map.</p>
+</div>
+<p>
+Each tile's model collection contains an open-format rendition of each building model in <a href=https://www.loc.gov/preservation/digital/formats/fdd/fdd000507.shtml">Wavefront Object format (.OBJ)</a>.  This model is zipped along with a json file that carries all of the model's attributes. 
+</p><p>
 Each tile's collection also includes a <b>Catalog Folder</b> that holds a GeoJSON and CSV table of the model footprints, tile frame and a low-resolution copy of the tile's base-map. 
 The catalog folder for each tiled model collection includes a <b>ModelFinder.htm</b> file that uses javascript and the catalog resources to create a clickable model index map.  Clicking the model's footprint on the map reveals its attributes and a download link for the zipped OBJ package. The ModelFinder application provides a means for collaborators to discover and selectively download updated models.  
 </p><p>
