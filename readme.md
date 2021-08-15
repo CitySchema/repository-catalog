@@ -41,7 +41,6 @@ To publish your collection on the web, simply copy the repository catalog to a d
 ## Coming Soon:
 We are now busy documenting the tools and workflows that we use to create and manage the model collection using ArcGIS Pro, Python and FME.  We will be posting these on the pbcGIS GitHub site, soon. To follow our progress, visit www.pbcGIS.com/cityschema . 
 
-We look forward to expanding the capabilities for applications to subscribe to updates to city models in this schema.  It wil lbe relatively simple to add model catalogs for each of the components that provide for the API required by the Open Archive Initiative Protocol for Metadata Harvesting.
 
 ## Acknowledgements
 CitySchema has been developed with key support from the **Boston Planning and Development Agency Office of Digital Cartography and GIS**.  This is the latest burst of improvements that continues a collaboration and financial support of City of Cambridge department of GIS and Historical Commission, Harvard University Graduate School of Design, Massachusetts Geographic Information System,  Harvard Center for Design Informatics, the Boston Redevelopment Authority,  Town of Brookline GIS, The Open Geospatial Consortium, The Massachusetts Institute of Technology Facilities Department, Harvard University Planning and Real Estate, Sasaki and Associates, Architects and many others. 
