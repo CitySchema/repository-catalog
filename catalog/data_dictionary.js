@@ -57,7 +57,7 @@ let dictionaries =  `
     </tr>
     <tr>
     <td><b>Appear_Dt</b><br>Date</td>
-    <td>Date of the latest observation or document that confirms the current value of Status</td>
+    <td>Date of the latest observation or document that confirms the current value of Status.  The Appear and Disappear dates should refer to the same document referred to in the Appear and Dissapper Source fields. </td>
     </tr>
     <tr>
     <td><b>AppearSrc</b><br>Text</td>
@@ -71,7 +71,7 @@ let dictionaries =  `
     </tr>
     <tr>
     <td><b>DisappSrc</b><br>Text</td>
-    <td>A short reference to the document that established the Dissap_Dt.
+    <td>A short reference to the document that established the Dissap_Dt.  A string created by putting th Dissappear Source and the Dissapper Date together should make a coherent reference to a dated document.
         <br>Example: “Nearmap “
         </td>
     </tr>
