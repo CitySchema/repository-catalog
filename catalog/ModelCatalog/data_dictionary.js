@@ -57,7 +57,8 @@ let dictionaries =  `
     </tr>
     <tr>
     <td><b>Appear_Dt</b><br>Date</td>
-    <td>Date of the latest observation or document that confirms the current value of Status</td>
+    <td>Date of the latest observation or document that confirms the current value of Status.  The Appear and Disappear dates should refer to the same document referred to in the Appear and Disappear Source fields.
+    </td>
     </tr>
     <tr>
     <td><b>AppearSrc</b><br>Text</td>
@@ -71,7 +72,7 @@ let dictionaries =  `
     </tr>
     <tr>
     <td><b>DisappSrc</b><br>Text</td>
-    <td>A short reference to the document that established the Dissap_Dt.
+    <td>A short reference to the document that established the Dissap_Dt.  A string created by putting th Disappear Source and the Disappear Date together should make a coherent reference to a dated document.
         <br>Example: “Nearmap “
         </td>
     </tr>
@@ -194,7 +195,9 @@ let dictionaries =  `
 
 <table class="dictionary">
     <tr>
-        <td colspan="2"><b>Edit Tracking Fields: </b> The workflows for managing the model collection in ArcGIS involve a lot of copying and appending of records to new feature classes.  Unfortunately, the auto-generated record initialization and record modification dates are wiped out whenever automatic tracking is enabled on a new feature class.  These auto-tracking fields are necessary for model management workflows, however we also need a way to persist information about the deliberate editing steps that were carried out.  This is why the Editor, Edit Date and Edit Action fields are not automatically updated.  </td>
+        <td colspan="2"><b>Edit Tracking Fields:</b> <p>The centroid positions are critical for applications that must translate the coordinates of models form the shifted Mass state Plane coordinates to geographic coordinates with rotation.
+        <p>The elevation information may be sed to convert model footprints to LOD1 models that may be used as place-holders in applications where efficienciy is more critical than true 3D.
+        </td>
     </tr>
     <tr>
     <td width="20%"><b>RecInitDt</b><br>Date</td>
