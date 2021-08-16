@@ -103,7 +103,13 @@ let dictionaries =  `
     </tr>
     <tr>
     <td><b>ModelNote</b><br>Text</td>
-    <td>May describe aspects of the model, such as if it was the product of a split or repair operation or if the model has a problem. </td>
+    <td>This is the text that would appear as the description of the model as a historical asset.  
+    In the case of hand-made models, this note might describe the context of the model'screation.  <br>Examples: <ul>
+    <li>Prepared for the Central Artery and Tunnel Project.
+    <li>Prepared for a Harvard Design School studio to re-envision City Hall Plaza, conducted by Professor Alex Krieger.
+    </ul>
+    This note might also reflect technical aspects of the model, for example, if the bottom of the model was extended at some point. 
+    </td>
     </tr>
     <tr>
     <td><b>Model_LOD</b><br>Double</td>
@@ -111,7 +117,7 @@ let dictionaries =  `
     </tr>
     <tr>
     <td><b>Survey_Src</b><br>Text</td>
-    <td>The observations that were used for establishing the shape of the model.  Should describe the document or firm and the methodology where possible. 
+    <td>The observations that were used for establishing the shape of the model.  Should describe the responsible party and the methodology where possible. 
         <br>Examples:  
         <ul><li>“Photogrammetry by Infotech Spring 2011”
             <li>“Model hand-made from design documents by Sasaki and Associates January 2018"
