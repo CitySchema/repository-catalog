@@ -179,9 +179,9 @@ li {
     color: #333;
 /*    display: block; */
     /*line-height: 1.4em; */
-    line-height: 1em; 
+    /*line-height: 1em; */
     /*margin-bottom: 1.165em; */
-    font: 87.5% "myriad-pro", Arial, Helvetica, sans-serif;
+    /*font: 87.5% "myriad-pro", Arial, Helvetica, sans-serif;*/
 }
 
 ul {
@@ -208,7 +208,7 @@ table.dictionary {
     margin-left: 25px;
     margin-right: 50px;
     border-collapse: collapse;
-    font: 13px "myriad-pro", Arial, Helvetica, sans-serif;
+    font: 87.5% "myriad-pro", Arial, Helvetica, sans-serif;
 }
 table.dictionary tr:nth-child(even) {
     background: #f5f3f3;
@@ -286,7 +286,7 @@ table.dddthumbs td {      /* Used for the 3d thumbnails o the downloads page */
     display: block;
     margin: 0;
     padding: 0;
-    font: 15px "myriad-pro", Arial, Helvetica, sans-serif;
+    font: 87.5% "myriad-pro", Arial, Helvetica, sans-serif;
   }
 
 .filelist h2 {
@@ -323,26 +323,3 @@ table.filelist td {
 
   }
   
-  
-.map-popup table {
-    width: 100%; 
-    border-collapse: collapse;
-    font: 87.5% "myriad-pro", Arial, Helvetica, sans-serif;
-}
-
-.map-popup p {
-    color: #333;
-    /*display: block;*/
-    margin: 0;
-    padding: 0;
-    vertical-align: middle;
-    font: 10px "myriad-pro", Arial, Helvetica, sans-serif;
-  }
-
-.map-popup h2 {
-    color: #333;
-    display: block;
-    line-height: 1.1em;
-    margin-bottom: 0.5em;
-    font: 92% "myriad-pro", Arial, Helvetica, sans-serif;
-  }
