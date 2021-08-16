@@ -9,7 +9,7 @@
 
     All of this amounts to a self-contained archival package that is intended to tell a person anything they would need to know to use the models in any sort of app or tool-chain that can read an OBJ file.
     
-    For more information, visit www.pbcgis.com/metro3d
+    For more information, visit www.pbcgis.com/cityschema
 
 -->
 <html>
@@ -32,7 +32,7 @@
        model in the associated models folder.  Each polygon is associated with all of the attributes for the model. The catalog file is shared as a plain JS file because web browsers don't allow loading local JSON files...  The conversion of json to js consists of adding a line, "var ModelCatalog = " at the top of the file.  Since the resulting variable is a JSON object, we can access pieces of it.  Like ModelCatalog.name will give us a nice title that identifies the Tile name and Issue Date.  ModelCatalog.features is the collection of attributed polygons.  -->
        <script src="./ModelCatalog_geojson.js" type="text/javascript"></script>
        <script src="./Frame_geojson.js" type="text/javascript"></script>
-       <script src="./data_dictionary.js" type="text/javascript"></script>
+       <script src="./data_dictionary_copy.js" type="text/javascript"></script>
 
 
   <style>
@@ -119,6 +119,10 @@ function stylePicker(Status){
 console.log('Frames has ' + framePoly.features.length + " 1 " + framePoly.features[0].geometry.type) ; 
 // has 5 coordinates
 console.log('Frame has ' + framePoly.features[0].geometry.coordinates[0].length + " Coordinate pairs"); 
+
+// We use the coordinates of the frame corners to figure out the placement of the groundplan image.
+// the L.imageOverlay.rotated module can georeference a local image which is especially helpful if 
+// the web-based base map is not accessible. 
 
 let lats = [], lons = []
 for (var j = 0; j < framePoly.features[0].geometry.coordinates[0].length; j++) {
