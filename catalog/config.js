@@ -14,7 +14,7 @@ let context = `
 let banner = `<h1 class="banner">BPDA 3D City Model</h1>`;
 
 let nav3d = `
-<a href="./tiled_index.htm" target="download">Data Download</a>
+<a href="./index.htm" target="download">Data Download</a>
 <a href="./about.htm">About the Project</a>
 <a href="./doc_index.htm" target="index">Documentation Index</a>
 `
