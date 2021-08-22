@@ -1,6 +1,6 @@
 # CitySchema: 
 ### Simple Repository/Catalog for Publishing, Extending and Preserving a Detailed, Living 3D City Model
-This repository provides a framework for sharing a city model with a community collaborators who use diverse tools:
+This repository provides a framework for sharing a city model among a community of collaborators who use diverse tools:
 
 * Geographic Information Systems
 * 3D Modeling Tools
@@ -8,7 +8,14 @@ This repository provides a framework for sharing a city model with a community c
 * Open Source Tool-Chains
 * Virtual Reality / Gaming
 
-This schema has been developed over a 20year period of collaboration between municipal GIS agencies, architects and archivists in the Boston metropolitan area.  More in the acknowldgements, below.  It is designed to be easily adapted to create new nodes representing different territories, or interests.  To learn more about how the CitySchema project is being extended, visit our home page at www.pbcGIS.com/cityschema. 
+The Repository / Catalog represents takes an digital asset management approach to encoding, publishing, sharing and preserving knowledge about the 3D form of places.  
+the city model as a collection of building models, a collection of terrain models, and a collection of groundplan textures.  The individual models in these collections are similar to more familiar documents that refer to places.  Each model reflects an observation taken at a certain time, rendered as a triangulated mesh surfaces with a potential to texture-mapped.  Each model is associated with metadata describing its provenance and many other attributes that are designed to make the model re-useable and systematically accessible to a variety of applications.  
+
+The modular design of the data model is designed to be easily replicated by collaborators who may be developing models of places in the city.  Models shared by municipal governments or campus authorities will be very useful to designer/developers and reviewers who can contribute models reflecting the future of places as it moves through the review and permittiong pipeline.  
+
+As the city model devlops into the future the collection also becomes a historical record -- which is is a side-effect of thoughtful model curation -- that may also become a deliberate vehicla for assembling and deepeing models that reflect the historical development of places, and historicalplaces as an organizing context for other documents.   
+
+It is designed to be easily adapted to create new nodes representing different territories, or interests.  To learn more about how the CitySchema project is being extended, visit our home page at www.pbcGIS.com/cityschema. 
 
 The CitySchema Repository uses a system of tiled modules and simple arrangement of files to create a coherent referencing scheme for detailed terrain models, ground plan images and a collection of building, bridge and wall models -- which are each individually referenced.
 
@@ -43,7 +50,7 @@ We are now busy documenting the tools and workflows that we use to create and ma
 
 
 ## Acknowledgements
-CitySchema has been developed with key support from the **Boston Planning and Development Agency Office of Digital Cartography and GIS**.  This is the latest burst of improvements that continues a collaboration and financial support of City of Cambridge department of GIS and Historical Commission, Harvard University Graduate School of Design, Massachusetts Geographic Information System,  Harvard Center for Design Informatics, the Boston Redevelopment Authority,  Town of Brookline GIS, The Open Geospatial Consortium, The Massachusetts Institute of Technology Facilities Department, Harvard University Planning and Real Estate, Sasaki and Associates, Architects and many others. 
+CitySchema has been developed over a 20 year period of collaboration between municipal GIS agencies, architects and archivists in the Boston metropolitan area.  The latest and most substantial burst of improvements have been supported by the **Boston Planning and Development Agency Office of Digital Cartography and GIS**.   This continues very fruitful collaboration and financial support from City of Cambridge department of GIS and the Cambridge Historical Commission.   
 
 
 
