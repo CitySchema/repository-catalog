@@ -87,10 +87,10 @@ var frameStyle = {
 function stylePicker(Status){
     var colorToUse;
     if (Status === "Current") colorToUse =  "grey"; //"#999966";
-    else if (Status === "Under Construction") colorToUse = "darkcyan";//"#599C65";
-    else if (Status === "Construction Complete") colorToUse = "lightseagreen";//"#599C65";
-    else if (Status === "Permitted") colorToUse = "green";
-    else if (Status === "Board Approved") colorToUse = "lightgreen";
+    else if (Status === "Construction Complete") colorToUse = "#6295bf";//gray-blue
+    else if (Status === "Under Construction") colorToUse = "#009900";//Dark Green
+    else if (Status === "Permitted") colorToUse = "#9933FF";  //Purple
+    else if (Status === "Board Approved") colorToUse = "#FF00FF"; //pink
     else if (Status === "Permitted Demo") colorToUse = "orange";//"#4161BA";
     else if (Status === "Approved Demo") colorToUse = "gold"//"#46C7FA";
     else if (Status === "Demolished") colorToUse = "red";
@@ -249,7 +249,7 @@ var Esri_WorldTopoMap = L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest
 
    var overlay = L.imageOverlay.rotated("./Groundplan_2011.jpg", topleft, topright, bottomleft, {
 	attribution: "MassGIS, pbcGIS",
-  opacity: 0.5
+  opacity: 0.4
 }).addTo(map);
 
 
@@ -286,13 +286,14 @@ var Esri_WorldTopoMap = L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest
     <span class="Current"></span>
     <label for="Current"> Current (0)</label></td></tr>
   
+    <tr><td><input type='checkbox' name='Status' value='Construction Complete' onclick="layerChecker(this)" disabled="true">
+      <span class="Construction_Complete"></span>
+      <label for="Construction Complete">Construction Complete (0)</label></td></tr>
+
     <tr><td><input type='checkbox' name='Status' value='Under Construction' onclick="layerChecker(this)" disabled="true">
       <span class="Under_Construction"></span>
       <label for="Under Construction">Under Construction (0)</label></td></tr>
 
-  <tr><td><input type='checkbox' name='Status' value='Construction Complete' onclick="layerChecker(this)" disabled="true">
-      <span class="Construction_Complete"></span>
-      <label for="Construction Complete">Construction Complete (0)</label></td></tr>
   <tr><td><input type='checkbox' name='Status' value='Approved Demo' onclick="layerChecker(this)" disabled="true">
     <span class="Approved_Demo"></span>
     <label for="Approved Demo">Approved Demo (0)</label></td></tr>
