@@ -249,16 +249,7 @@ let dictionaries =  `
     <td width="20%"><b>Feature Class</b></td>
     <td width="60%"><b>Description</b></td>
     </tr>
-    <tr>
-        <td><b>Prefile</b></td>
-        <td>Proposed</td>
-        <td>Submitted to the Article 80 process but not yet a complete application.</td>
-    </tr>
-    <tr>
-        <td><b>Under Review</b></td>
-        <td>Proposed</td>
-        <td>The model represents a scenario that has been officially proposed.</td>
-    </tr>
+
     <tr>
         <td><b>Permitted</b></td>
         <td>Proposed</td>
