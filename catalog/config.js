@@ -24,10 +24,10 @@ let coordsys = `
 	<p><b>Projected Coordinate System:</b> State Plane Massachusetts Mainland (Feet),  North American Datum of 1983.
 	<br>
     <b>Vertical Coordinate System for 3D data:</b> North American Vertical Datum, 1988 (NAVD 88) Feet (Height)
-	<P><b>Origin / Offset / Insertion Point </B>
-	<p>The origin of the Metro 3D Boston coordinate system serves as the insertion point for models.
+	<br><b>Origin / Offset / Insertion Point: </B>
+	<br>The origin of the Metro 3D Boston coordinate system serves as the insertion point for models.
 		 <UL>
-			 <LI>State Plane Coordinates:</b>
+			 <LI><b>State Plane Coordinates:</b>
 			<ul> <li><b>X:</b>731,100 feet
 				 <li><b>Y:</b>2,902,900 feet
 			</ul>
