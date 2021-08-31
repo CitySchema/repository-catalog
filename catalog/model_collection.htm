@@ -50,7 +50,7 @@
 
 
     <p>
-The real-world structures represented by models in the collection may exist or may be historical, proposed or completely hypothetical. It is possible to have more than one model for a given structure as observed at different times, created by different modelers at different levels of detail, as shown above.  We won't fight the temptation to call these "Building Models"; But users and contributors should keep in mind that models in this collection do not have a one-to-one relationship with Buildings (though some of them do!).
+The real-world structures represented by models in the collection may exist or may be historical, proposed or completely hypothetical. It is possible to have more than one model for a given structure as observed at different times, created by different modelers at different levels of detail, as shown above.  We won't fight the temptation to call these "Building Models"; But users and contributors should keep in mind that models in this collection do not have a one-to-one relationship with actual "buildings" (though some of them do!).
 </p>
 <!--
 <div class="fig_right">
@@ -70,14 +70,11 @@ The real-world structures represented by models in the collection may exist or m
 
 <h2 id="gdb">Geographic Information Systems View of the Model Collection and Catalog</h2>
 <p>
-    The primary tool used for assembling and managing the model collection is ArcGIS Pro – commercial GIS software by ESRI.  In ArcGIS, 3D models are stored as a data column in a table known as a Geodatabase Feature Class.  Like an ordinary database table a feature class table accommodates text and numeric data fileds. A geodatabase feature class may also include a column representing shapes like lines and polygons or 3D models.  A 3D model in a geodatabase is stored as a Multipatch object which is an arrangement of triangular faces that may be colored or draped with image textures.  The geometry of geodatabase features can be expressed in world-wide coordinate systems.  These capabilities make ArcGIS geodatabases very useful for developing and managing a collection of georeferenced 3D models.  
+    The primary tool used for assembling and managing the model collection is ArcGIS Pro – commercial GIS software by ESRI.  In ArcGIS, 3D models are stored as a data column in a table known as a Geodatabase Feature Class.  Like an ordinary database table a GIS feature class  associates a row of numerical and text attributes. A geodatabase feature class may also represent geometric objects like lines and polygons or 3D models.  A 3D model in an ESRI geodatabase is stored as a Multipatch object -- an arrangement of triangular faces that may be colored or draped with image textures.  The geometry of geodatabase features can be expressed in world-wide coordinate systems.  These capabilities make ArcGIS geodatabases very useful for developing and managing a collection of georeferenced 3D models.  
 </p>
 <p>
-    Geodatabase feature classes are not an open format and ESRI does not recommend that their geodatabase format be considered as a vehicle for long-term data preservation.  3D modeling tools used by designers and other makers do not work with geodatabase format, nor do they work with coordinate systems that are very broad in extent.  To make the resources accessible to diverse users  the BPDA publishes the model collection with a system of tiled modules in formats that address the needs of non-GIS tools.  You can find a deeper discussion of the tiling scheme and coordinate system on the page <a href="./tile_grid.htm">Boston 3D Tile Grid and Coordinate System</a>.
+    Geodatabase feature classes are not an open format and ESRI does not recommend that their geodatabase format be considered as a vehicle for long-term data preservation.  3D modeling tools used by designers and other makers do not work with geodatabase format, nor do they work with coordinate systems that are very broad in extent.  To make the resources accessible to diverse users and applications  the BPDA publishes the model collection with a system of tiled modules in formats that address the needs of non-GIS tools.  You can find a deeper discussion of the tiling scheme and coordinate system on the page <a href="./tile_grid.htm">Boston 3D Tile Grid and Coordinate System</a>.
 </p>
-
-
-
 
 <div class="fig_right">
     <img class="fig_right" src="./images/geodatabase.jpg">
