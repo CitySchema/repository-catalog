@@ -25,8 +25,8 @@ The Repository Catalog is a web site that can be dropped in to any web server wi
 
 Right-click these links to open in a new tab so that this window can stay in Git-hub.
 
-* View the [Tiled Download Page](https://pbcgis.github.io/CitySchema-Bos3d-RepositoryCatalog/catalog/index.htm).  Click on tile I3 to try out how users can download assets, including individual building models. 
-* Take a look at the [index to documentation](https://pbcgis.github.io/CitySchema-Bos3d-RepositoryCatalog/catalog/index.htm), which should be sufficient to explain how the city model is put together and how it can be used to coordinate activities across diverse tools and territories. 
+* View the [Tiled Download Page](https://github.com/CitySchema/repository-catalog/catalog/index.htm).  Click on tile I3 to try out how users can download assets, including individual building models. 
+* Take a look at the [index to documentation](https://github.com/CitySchema/repository-catalog/catalog/index.htm), which should be sufficient to explain how the city model is put together and how it can be used to coordinate activities across diverse tools and territories. 
 
 ## Explore in GitHub
 Explore this gitHub repository to learn how the Repository and Catalog package is organized as 
