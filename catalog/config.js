@@ -11,7 +11,7 @@ let context = `
 </p> 
 `;
 
-let banner = `<h1 class="banner">BPDA 3D City Model</h1>`;
+let banner = `<h1 class="banner">Your City Model</h1>`;
 
 let nav3d = `
 <a href="./index.htm" target="download">Data Download</a>
