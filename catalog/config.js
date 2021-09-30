@@ -6,7 +6,7 @@
 
 let context = `
 <h2>Context</h2>
-<p>The Boston Planning and Development Agency (BPDA) maintains a 3D model of the city as a visualization and analytical tool for understanding ideas related to the future of neighborhoods.  The BPDA city model is constructed of several components: Terrain, Groundplan, and 3D models of buildings.  Each of these components is
+<p>[Your Agency Name Here] maintains a 3D model of the city as a visualization and analytical tool for understanding ideas related to the future of neighborhoods.  The BPDA city model is constructed of several components: Terrain, Groundplan, and 3D models of buildings.  Each of these components is
     shared in formats intended to facilitate collaboration between diverse communities who have an interest in understanding places in the city as they have changed or as they may be changed.  
 </p> 
 `;
