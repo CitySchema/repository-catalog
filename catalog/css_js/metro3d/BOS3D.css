@@ -18,11 +18,11 @@ body {
 
 
 a:visited {
-    color: #058ea0;
+    color: #9e0245;
     }
     
 a {
-    color: #058ea0;
+    color: #9e0245;
     }   
 
 a:hover {
@@ -54,7 +54,7 @@ h1.banner  {
     padding: 5px 15px 5px 30px;
     margin-top: 5px;
     margin-left: -25px;
-    background: #00a7b5;
+    background: #9e0245;
 }
 
 
@@ -133,7 +133,7 @@ display: inline;
  }
  
 h1, h2, h3, h4, h5, h6 {
-    color: #00a7b5;
+    color: #9e0245;
     font-family: FFLegatoWebBold,'Open Sans',sans-serif;
     font-weight: 700;
     /*margin: 0.5em 0em; */
