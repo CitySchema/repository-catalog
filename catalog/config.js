@@ -46,7 +46,7 @@ let disclaimer = `
 <hr>    
 <h3>Disclaimer</h3>
     <p>
-	<em><span style="font-size:14px;">Disclaimer:&nbsp;</span><span style="font-size: small;">[Your agency name here] recognizes the value and benefit gained by sharing Geospatial data. Although the BPDA has made reasonable efforts to provide accurate data, the Agency makes no representations or guarantees about the accuracy, completeness, or currency of the information provided. The BPDA provides this data as is and with all faults, and makes no warranty of any kind. Each user is responsible for determining the suitability of the data for their intended use or purpose. Neither the City, the BPDA nor its affiliates, employees, or agents shall be liable for any loss or injury caused in whole or in part by use of any data obtained from this website. The geospatial data is updated and modified on a regular basis and users are encouraged to report any errors to the BPDA.</span></em></p>
+	<em><span style="font-size:14px;">Disclaimer:&nbsp;</span><span style="font-size: small;">[Your agency name here] (Agency) makes no representations or guarantees about the accuracy, completeness, or currency of the information provided. The Agency provides this data as is and with all faults, and makes no warranty of any kind. Each user is responsible for determining the suitability of the data for their intended use or purpose. Neither the City, the Agency nor its affiliates, employees, or agents shall be liable for any loss or injury caused in whole or in part by use of any data obtained from this website. The geospatial data is updated and modified on a regular basis and users are encouraged to report any errors to the Agency.</span></em></p>
 `;
 
 
