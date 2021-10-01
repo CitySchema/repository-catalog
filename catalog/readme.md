@@ -12,4 +12,4 @@ Files of note:
 
 The rest of the pages here are pretty simple html pages.  All images are referenced from the images folder.  Yes, for now, these are created and edited as plain html. 
 
-The one important CSS file is Bos3d.css which is intended to mimic the styling of the BPDA's web site.  These styles can be hacked to better fit in with your own web site.
+The one important CSS file is Bos3d.css which is intended to mimic the styling of agency's web site.  These styles can be hacked to better fit in with your own web site.
