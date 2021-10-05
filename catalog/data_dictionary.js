@@ -251,9 +251,14 @@ let dictionaries =  `
     </tr>
 
     <tr>
+        <td><b>Board Approved</b></td>
+        <td>Proposed</td>
+        <td>The building project has been approved by the planning board. </td>
+    </tr>
+    <tr>
         <td><b>Permitted</b></td>
         <td>Proposed</td>
-        <td>The building project has been given construction permits. </td>
+        <td>The building project has recieved construction permits. </td>
     </tr>
     <tr>
         <td><b>Under Construction</b></td>
@@ -291,20 +296,33 @@ let dictionaries =  `
         <td>History</td>
         <td>A model that has been completely replaced in the Active collection because the real-word structure has been demolished. </td>
     </tr>
-    <tr>
-        <td><b>Fiction</b></td>
-        <td>Alt</td>
-        <td>The model represents a completely fictitious scenario not an official proposal </td>
-    </tr>
+
     <tr>
         <td><b>Alt Model</b></td>
         <td>Alt</td>
         <td>The alt feature class holds models that represent buildings that are of a different level of detail or for some reason redundant with other models of the same structure in the Active feature class -- but still useful. </td>
     </tr>
     <tr>
+        <td><b>Fiction</b></td>
+        <td>Internal</td>
+        <td>The model represents a completely fictitious scenario not an official proposal </td>
+    </tr>
+    <tr>
+    <td><b>Pre-File</b></td>
+    <td>Internal</td>
+    <td>The model is a draft that has not yet been formally submitted for review. </td>
+</tr>
+<tr>
+<td><b>Under Review</b></td>
+<td>Internal</td>
+<td>The model represents a proposal that is under review by the planning board.  </td>
+</tr>
+
+
+    <tr>
     <td><b>Retired</b></td>
     <td>Retired</td>
-    <td>The retired feature class preserves models that are redundant with other models of the same structure.  The real-world structure is represented perfectly well by another model in another feature class. The models are preserved as they reflect a valuable record of observations or creative work.</td>
+    <td>The retired feature class preserves models that are redundant with other models of the same structure.  The real-world structure is represented perfectly well by another model in another feature class. The models are preserved for the purposes of possible recovery and as they reflect a valuable record of observations or creative work.</td>
 </tr>
     </table>
 
